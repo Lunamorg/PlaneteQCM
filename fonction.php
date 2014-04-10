@@ -45,7 +45,6 @@ function ajouter($nomTable, $donnees)
     }
     $req = substr($req, 0, -1);
     $req .= ")";
-    echo $req;
     mysql_query($req) or die ('ERREUR '.mysql_error());
 }
 
@@ -81,7 +80,6 @@ function maj($nomTable, $donnees, $where)
                 $req .= value." ";
         }
     }
-    echo $req;
     mysql_query($req) or die ('ERREUR '.mysql_error());
 }
 
@@ -106,7 +104,6 @@ function supprimer($nomTable, $where)
                 $req .= value." ";
         }
     }
-    echo $req;
     mysql_query($req) or die ('ERREUR '.mysql_error());
 }
 
@@ -137,7 +134,6 @@ function selectionner($nomTable, $donnee, $where = null)
                 $req .= value." ";
         }
     }
-    echo $req;
     $res = mysql_query($req) or die ('ERREUR '.mysql_error());
     return mysql_fetch_assoc($res);
 }
@@ -172,6 +168,26 @@ function estCorrect($par)
         }
         return true;
     }
+}
+
+function nbConnecte($nomTable, $where)
+{
+    $req = "SELECT *";
+
+    $req .= " FROM ".$nomTable." ";
+    if($where != null)
+    {
+        foreach($where as $key => $value)
+        {
+            $req .= "WHERE ".$key."=";
+            if(gettype($value) == "string")
+                $req .= "'".$value."' ";
+            else
+                $req .= value." ";
+        }
+    }
+    $res = mysql_query($req) or die ('ERREUR '.mysql_error());
+    return  mysql_num_rows($res);
 }
 
 ?>
