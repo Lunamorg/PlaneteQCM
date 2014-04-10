@@ -1,103 +1,111 @@
 /* Backgrounds de nos pages */
 
-body 
+body
 {
-  padding : 0px; 
-  margin : 0px;
-  background-color : RGB(150,150,150);
+    padding : 0px;
+    margin : 0px;
+    background-color : RGB(150,150,150);
 }
 
+/*------------ Entete--------------------------------------------------------------- */
 /* Titre de nos pages */
 
-#EN_TETE 
-{   
-  display : inline-block;
-  position : absolute;
-  width : 100%;
-  height : 10%;
-  background-color : RGB(100, 170, 255);
-  font-family : sans-serif, Arial;
-  text-align : center;
-  color : black;
+#EN_TETE
+{
+    display : inline-block;
+    position : absolute;
+    width : 100%;
+    height : 10%;
+    background-color : RGB(100, 170, 255);
+    font-family : sans-serif, Arial;
+    text-align : center;
+    color : black;
 }
+
+/*------------ Menu--------------------------------------------------------------- */
 
 /* Propriété de la bande de couleur menu */
 
-#MENU 
-{  
-  display : inline-block;
-  position : absolute;
-  top : 10%;
-  left : 0px;
-  height : 5%;
-  width : 100%;
-  background-color : RGB(0, 100, 198);
+#MENU
+{
+    display : inline-block;
+    position : absolute;
+    top : 10%;
+    left : 0px;
+    height : 5%;
+    width : 100%;
+    background-color : RGB(0, 100, 198);
 }
 
 #MENU a:hover
 {
-  color : white;
+    color : white;
+}
+#menu_tableau
+{
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 8px;
 }
 
+#menu_tableau td
+{
+    width: 125px;
+    font-size: 20px;
+}
+/* Propriétés sur les liens */
+
+#menu_tableau a
+{
+    text-decoration : none;
+    color : black;
+}
+
+/*------------ Corps --------------------------------------------------------------- */
 /* Propriétés du corps de nos pages */
 
 #CORPS
-{   
-  display : inline-block;
-  position : absolute;
-  top : 15%;
-  left : 22%;
-  right : 22%;
-  width : 56%;  
-  height : 80%;
-  background-color : RGB(150,150,150);
+{
+    display : inline-block;
+    position : absolute;
+    top : 15%;
+    left : 22%;
+    right : 22%;
+    width : 56%;
+    height : 80%;
+    background-color : RGB(150,150,150);
 }
 
 #CORPS p
 {
-  text-indent : 2%;
+    text-indent : 2%;
 }
 
+/*------------ Pied de page --------------------------------------------------------------- */
 /* Bas de nos pages */
 
 #PIED_PAGE
 {
-  display : inline-block;
-  position : absolute;
-  bottom : 0px;
-  left : 0px;
-  height : 5%;
-  width : 100%;    
-  background-color : RGB(0, 100, 198); 
+    display : inline-block;
+    position : absolute;
+    bottom : 0px;
+    left : 0px;
+    height : 5%;
+    width : 100%;
+    background-color : RGB(0, 100, 198);
 }
 
-table 
-{  
-  margin-left : 22%;
-}
 
-td
+
+/*------------ Autres --------------------------------------------------------------- */
+
+a:visited
 {
-  height : 30%;
-  width : 25%;
-  border : solid;
-}
-/* Propriétés sur les liens */
-
-a 
-{
-  text-decoration : none;
-  color : black;
-}
-
-a:visited 
-{
-  color : black;
+    color : black;
 }
 
 input
 {
-  display : inline-block;
-  position : relatif;
-  left : 20%;
+    display : inline-block;
+    left : 20%;
 }
