@@ -2,10 +2,15 @@
 
 body
 {
-    padding : 0;
-    margin : 0;
-    background-color : RGB(150,150,150);
+    background-color : RGB(114, 192, 44);
 }
+/* Reset des marges par défaut */
+*
+{
+    margin:0;
+    padding:0;
+}
+
 
 /*------------ Entete--------------------------------------------------------------- */
 /* Titre de nos pages */
@@ -34,7 +39,6 @@ body
 
 #MENU
 {
-    display : inline-block;
     top : 6%;
     left : 0px;
     height : 3%;
@@ -109,14 +113,13 @@ body
 
 #CORPS
 {
-    top : 15%;
-    left : 22%;
     right : 22%;
     width : 56%;
     height : 80%;
     margin-left: auto;
     margin-right: auto;
-    background-color : RGB(150,150,150);
+    background-color : RGB(255,255,255);
+    border-top: solid grey 1px;
 }
 
 #CORPS p
