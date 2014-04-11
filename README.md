@@ -8,7 +8,7 @@ A faire
 =======
 _ Cryptage du mot de passe  
 _ Voir si on peut simplifier le code afin d'avoir moins de fichier [en cours]  
-_ Modifier le css du pied de page 
+_ Modifier le css du pied de page  
 _ Choix du qcm  
 
 
