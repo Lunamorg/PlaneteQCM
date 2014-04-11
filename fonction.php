@@ -155,6 +155,8 @@ function cryptage($str)
  */
 function estCorrect($par)
 {
+    if(!isset($par) || empty($par))
+        return false;
     if(gettype($par) != "array")
     {
         return !empty($par);
@@ -170,6 +172,11 @@ function estCorrect($par)
     }
 }
 
+/*
+ * Retourne le nombre de personnes connectes lu dans la base de donnee
+ * parametre: le nom de la table, tableau associatif pour savoir où on lit
+ * retourne: le nombre de connecte
+ */
 function nbConnecte($nomTable, $where)
 {
     $req = "SELECT *";
@@ -188,6 +195,28 @@ function nbConnecte($nomTable, $where)
     }
     $res = mysql_query($req) or die ('ERREUR '.mysql_error());
     return  mysql_num_rows($res);
+}
+
+/*
+ * Lit les QCM dans le fichier
+ * parametre: le nom du fichier
+ * retourne: un tableau dont les indices pairs sont les questions et impairs les reponses
+ */
+function lireQCM($fichier)
+{
+    $f = fopen($fichier, "r");
+    $tab = array();
+    $i = 0;
+    while(!feof($f))
+    {
+        $question = fgets($f);
+        $reponse = fgets($f);
+        $tab[$i] = $question;
+        $tab[$i + 1] = $reponse;
+        $i += 2;
+    }
+    fclose($f);
+    return $tab;
 }
 
 ?>
