@@ -219,4 +219,22 @@ function lireQCM($fichier)
     return $tab;
 }
 
+/*
+ * Liste tous les fichiers d'un dossier
+ * parametre: le dossier
+ * retourne: un tableau contenant les nom des fichiers lu
+ */
+function listeQCM($matiere)
+{
+    $dir = opendir($matiere);
+    $liste = array();
+    $i = 0;
+    while($fichier = readdir($dir))
+    {
+        $liste[$i] = $fichier;
+        ++$i;
+    }
+    return $liste;
+}
+
 ?>
