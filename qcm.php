@@ -17,13 +17,13 @@
 
 <div id ="CORPS">
     <?php
-    if(isset($_GET['qcm']))
-    {
-        if(!isset($_GET['cor']))
+        if(isset($_GET['cor']) && $_GET['cor'] == "false")
         {
-            echo '<form method="POST" action="qcm.php?matiere=maths&qcm=qcm1&cor=true">';
+            if(!isset($_SESSION['pseudo']))
+                header("Location: connexion.php?err=con");
+            echo '<form method="POST" action="qcm.php?matiere='.$_GET['matiere'].'&cor=true">';
             $i = 0;
-            foreach(lireQCM("qcm/sport/".$_GET["qcm"].".txt") as $valeur)
+            foreach(lireQCM("qcm/".$_GET['matiere']."/qcm.txt") as $valeur)
             {
 
                 if($i % 3 == 0)
@@ -47,14 +47,14 @@
             echo '<input type="submit" value="Soumettre"/>';
             echo '</form>';
         }
-        else
+        else if(isset($_GET['cor']) && $_GET['cor'] == "true")
         {
             $i = 0;
             $j = 0;
             $reponse = array();
             $score = 0;
 
-            foreach(lireQCM("qcm/sport/".$_GET["qcm"].".txt") as $valeur)
+            foreach(lireQCM("qcm/".$_GET['matiere']."/qcm.txt") as $valeur)
             {
                 if($i%3 == 2)
                 {
@@ -65,7 +65,7 @@
             }
             $i = 0;
             $k = 0;
-            foreach(lireQCM("qcm/sport/".$_GET["qcm"].".txt") as $valeur)
+            foreach(lireQCM("qcm/".$_GET['matiere']."/qcm.txt") as $valeur)
             {
 
                 if($i % 3 == 0)
@@ -96,11 +96,22 @@
             }
 
             echo "<h4>SCORE: ".$score."/".floor($i/3)."-".number_format($score*100/floor($i/3), 2)."% </h4>";
-        }
     }
     else
     {
-
+      $i = 0;
+      echo "<table>";
+      foreach(listeMatiere("qcm") as $valeur) {
+        ++$i;
+        if($i % 2 !=0) {
+          echo " <tr> <td> <a href='qcm.php?matiere=".$valeur."&cor=false'>".$valeur."</a> </td>";
+        }
+        else {
+          echo " <td> <a href='qcm.php?matiere=".$valeur."&cor=false'>".$valeur."</a></td></tr> ";
+        }
+        
+      }
+      echo "</table>";
     }
     ?>
 </div>
