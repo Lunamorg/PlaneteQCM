@@ -8,8 +8,9 @@ if(estCorrect($_GET['type']))
     {
         if(estCorrect(array($_POST['pseudo'], $_POST['mdp'], $_POST['email']))) {
             connexion('projet');
-            ajouter('planeteqcm', array($_POST['pseudo'], $_POST['mdp'], $_POST['email'], '0'));
+            ajouter('planeteqcm', array($_POST['pseudo'], $_POST['mdp'], $_POST['email'], '0', "true"));
             deconnexion();
+            $_SESSION['pseudo'] = $_POST['pseudo'];
             echo "enregistre";
         }
     }
@@ -36,6 +37,9 @@ if(estCorrect($_GET['type']))
 }
 else
 {
+    connexion('projet');
+    maj("planeteqcm", array("connecte" => "false"), array("pseudo" => "Lunamorg"));
+    deconnexion();
     echo "page incorrect";
 }
 header('location: planete.php');
