@@ -16,8 +16,6 @@
 
   <div id ="CORPS">
       <h3>QCM par thème</h3>
-
-      
   </div>
 
   <?php include('pied.php'); ?>
