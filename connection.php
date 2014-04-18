@@ -15,7 +15,16 @@
     
     <div id="CORPS">
       <h3>Connectez-vous à notre site.</h3>
-      <form method="POST" action="inscrit.php">
+      <?php
+      if(isset($_GET["err"]))
+      {
+          if($_GET["err"] == "con")
+          {
+              
+          }
+      }
+      ?>
+      <form method="POST" action="traitement.php?type=connexion">
         <fieldset>
           <label>Pseudonyme</label>
           <input type="text" name="pseudo"/><br/>
