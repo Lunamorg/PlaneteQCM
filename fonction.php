@@ -224,15 +224,19 @@ function lireQCM($fichier)
  * parametre: le dossier
  * retourne: un tableau contenant les nom des fichiers lu
  */
-function listeQCM($matiere)
+function listeMatiere($dossier)
 {
-    $dir = opendir($matiere);
+    $dir = opendir($dossier);
     $liste = array();
     $i = 0;
     while($fichier = readdir($dir))
     {
-        $liste[$i] = $fichier;
-        ++$i;
+        $tab = explode(".", $fichier);
+        if(count($tab) == 1)
+        {
+          $liste[$i] = $fichier;
+          ++$i;
+        }
     }
     return $liste;
 }
