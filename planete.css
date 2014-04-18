@@ -1,163 +1,164 @@
 /* Backgrounds de nos pages */
 
-body
-{
-    background-color : RGB(114, 192, 44);
-}
-/* Reset des marges par défaut */
-*
-{
-    margin:0;
-    padding:0;
+body {
+  background-color: RGB(114, 192, 44);
 }
 
+/* Reset des marges par défaut */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 /*------------ Entete--------------------------------------------------------------- */
 /* Titre de nos pages */
 
-#EN_TETE
-{
-    width : 100%;
-    height : 50px;
-    background-color : RGB(255, 255, 250);
-    font-family : sans-serif, Arial;
-    text-align : center;
-    color : black;
+#EN_TETE {
+  width: 100%;
+  height: 50px;
+  background-color: RGB(255, 255, 250);
+  font-family: sans-serif, Arial;
+  text-align: center;
+  color: black;
 }
 
-#EN_TETE h2
-{
-    display: inline;
-    position: absolute;
-    margin-right: auto;
-    margin-left: auto;
+#EN_TETE h2 {
+  display: inline;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /*------------ Menu--------------------------------------------------------------- */
 
 /* Propriété de la bande de couleur menu */
 
-#MENU
-{
-    top : 6%;
-    left : 0px;
-    height : 3%;
-    width : 100%;
-    background-color : RGB(255, 255, 250);
+#MENU {
+  top: 6%;
+  left: 0px;
+  height: 3%;
+  width: 100%;
+  background-color: RGB(255, 255, 250);
 }
 
-#MENU a:hover
-{
-    color : white;
-}
-#menu_tableau
-{
-    margin-left : auto;
-    margin-right : auto;
+#MENU a:hover {
+  color: white;
 }
 
-#menu_tableau td
-{
-    width: 125px;
-    font-size: 20px;
+#menu_tableau {
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#menu_tableau td {
+  width: 125px;
+  font-size: 20px;
+}
+
 /* Propriétés sur les liens */
 
-#menu_tableau a
-{
-    text-decoration : none;
-    color : grey;
+#menu_tableau a {
+  text-decoration: none;
+  color: grey;
 }
 
-#menu_tableau a:hover
-{
-    text-decoration: underline;
-    color: RGB(114, 192, 44)
+#menu_tableau a:hover {
+  text-decoration: underline;
+  color: RGB(114, 192, 44)
 }
 
 /*------------ Menu connexion--------------------------------------------------------------- */
-#menu_connexion
-{
-    float: right;
-    margin-right: 1em;
+#menu_connexion {
+  float: right;
+  margin-right: 1em;
 }
 
-#menu_connexion ul
-{
-    list-style: none;
-    margin: 0;
-    position: relative;
+#menu_connexion ul {
+  list-style: none;
+  margin: 0;
+  position: relative;
 }
 
-#menu_connexion li
-{
-    display: inline-block;
-    margin-right: 5px;
-    margin-left: 5px;
+#menu_connexion li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
-#menu_connexion a
-{
-    text-decoration: none;
-    color: grey;
+#menu_connexion a {
+  text-decoration: none;
+  color: grey;
 }
 
-#menu_connexion a:hover
-{
-    text-decoration: underline;
-    color: grey;
+#menu_connexion a:hover {
+  text-decoration: underline;
+  color: grey;
 }
 
 /*------------ Corps --------------------------------------------------------------- */
 /* Propriétés du corps de nos pages */
 
-#CORPS
-{
-    width : 800px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color : RGB(255,255,255);
-    border-top: solid grey 1px;
-    min-height: 600px;
+.CORPS {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: RGB(255, 255, 255);
+  border-top: solid grey 1px;
+  min-height: 600px;
 }
 
-#CORPS p
-{
-    text-indent : 2%;
+.CORPS p {
+  text-indent: 2%;
+}
+
+/* QCM -> choix de la matiere */
+.choix_matiere {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.choix_matiere td {
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border: solid 1px black;
+  color: white;
+}
+
+.choix_matiere input {
+  width: 74px;
+  margin-top: 150px;
+  margin-left: 63px;
 }
 
 /*------------ Pied de page --------------------------------------------------------------- */
 /* Bas de nos pages */
 
-#PIED_PAGE
-{
-    position : relative;
-    height : 5%;
-    width : 800px;
-    margin-right : auto;
-    margin-left: auto;
-    background-color : RGB(0, 100, 198);
+#PIED_PAGE {
+  position: relative;
+  height: 5%;
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: RGB(0, 100, 198);
 }
 
-.rep_bon
-{
-    color: green
+.rep_bon {
+  color: green
 }
 
-.rep_faux
-{
-    color: red
+.rep_faux {
+  color: red
 }
 
 /*------------ Autres --------------------------------------------------------------- */
 
-a:visited
-{
-    color : black;
+a:visited {
+  color: black;
 }
 
-input
-{
-    display : inline-block;
-    left : 20%;
+input {
+  display: inline-block;
+  left: 20%;
 }

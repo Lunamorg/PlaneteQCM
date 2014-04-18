@@ -11,8 +11,8 @@
  */
 function connexion($nomBDD)
 {
-    mysql_connect("localhost", "root",  "") or die ('ERREUR '.mysql_error());
-    mysql_select_db($nomBDD);
+  mysql_connect("localhost", "root", "") or die ('ERREUR ' . mysql_error());
+  mysql_select_db($nomBDD);
 }
 
 /*
@@ -22,7 +22,7 @@ function connexion($nomBDD)
  */
 function deconnexion()
 {
-    mysql_close();
+  mysql_close();
 }
 
 /*
@@ -32,20 +32,19 @@ function deconnexion()
  */
 function ajouter($nomTable, $donnees)
 {
-    $req = "INSERT INTO ".$nomTable." ";
-    $req .= "VALUES(";
-    foreach($donnees as $cle => $valeur)
-    {
-        if(gettype($valeur) == "string")
-            $req .= "'";
-        $req .= $valeur;
-        if(gettype($valeur) == "string")
-            $req .= "'";
-        $req .= ",";
-    }
-    $req = substr($req, 0, -1);
-    $req .= ")";
-    mysql_query($req) or die ('ERREUR '.mysql_error());
+  $req = "INSERT INTO " . $nomTable . " ";
+  $req .= "VALUES(";
+  foreach ($donnees as $cle => $valeur) {
+    if (gettype($valeur) == "string")
+      $req .= "'";
+    $req .= $valeur;
+    if (gettype($valeur) == "string")
+      $req .= "'";
+    $req .= ",";
+  }
+  $req = substr($req, 0, -1);
+  $req .= ")";
+  mysql_query($req) or die ('ERREUR ' . mysql_error());
 }
 
 /*
@@ -56,31 +55,28 @@ function ajouter($nomTable, $donnees)
  */
 function maj($nomTable, $donnees, $where)
 {
-    $req = "UPDATE ".$nomTable." ";
-    $req .= "SET ";
-    foreach($donnees as $cle => $valeur)
-    {
-        $req .= $cle."=";
-        if(gettype($valeur) == "string")
-            $req .= "'";
-        $req .= $valeur;
-        if(gettype($valeur) == "string")
-            $req .= "'";
-        $req .= ",";
+  $req = "UPDATE " . $nomTable . " ";
+  $req .= "SET ";
+  foreach ($donnees as $cle => $valeur) {
+    $req .= $cle . "=";
+    if (gettype($valeur) == "string")
+      $req .= "'";
+    $req .= $valeur;
+    if (gettype($valeur) == "string")
+      $req .= "'";
+    $req .= ",";
+  }
+  $req = substr($req, 0, -1);
+  if ($where != null) {
+    foreach ($where as $key => $value) {
+      $req .= " WHERE " . $key . "=";
+      if (gettype($value) == "string")
+        $req .= "'" . $value . "' ";
+      else
+        $req .= $value . " ";
     }
-    $req = substr($req, 0, -1);
-    if($where != null)
-    {
-        foreach($where as $key => $value)
-        {
-            $req .= " WHERE ".$key."=";
-            if(gettype($value) == "string")
-                $req .= "'".$value."' ";
-            else
-                $req .= value." ";
-        }
-    }
-    mysql_query($req) or die ('ERREUR '.mysql_error());
+  }
+  mysql_query($req) or die ('ERREUR ' . mysql_error());
 }
 
 
@@ -92,50 +88,45 @@ function maj($nomTable, $donnees, $where)
  */
 function supprimer($nomTable, $where)
 {
-    $req = "DELETE FROM ".$nomTable;
-    if($where != null)
-    {
-        foreach($where as $key => $value)
-        {
-            $req .= " WHERE ".$key."=";
-            if(gettype($value) == "string")
-                $req .= "'".$value."' ";
-            else
-                $req .= value." ";
-        }
+  $req = "DELETE FROM " . $nomTable;
+  if ($where != null) {
+    foreach ($where as $key => $value) {
+      $req .= " WHERE " . $key . "=";
+      if (gettype($value) == "string")
+        $req .= "'" . $value . "' ";
+      else
+        $req .= $value . " ";
     }
-    mysql_query($req) or die ('ERREUR '.mysql_error());
+  }
+  mysql_query($req) or die ('ERREUR ' . mysql_error());
 }
 
 /*
  * Selectionne les donnees dans la base de donnee
  * parametre: nom de la table, tableau associatif contenant les donnees a recuperer, tableau associatif pour savoir où
  *              on modifie(UNE SEULE DONNEE AU TABLEAU! Peut être égal a * pour obtenir tous les champs)
- * retourne: rien
+ * retourne: un tableau associatif contenant les reponses
  */
 function selectionner($nomTable, $donnee, $where = null)
 {
-    $req = "SELECT ";
-    foreach($donnee as $valeur)
-    {
-        $req .= $valeur.",";
-    }
-    $req = substr($req, 0, -1);
+  $req = "SELECT ";
+  foreach ($donnee as $valeur) {
+    $req .= $valeur . ",";
+  }
+  $req = substr($req, 0, -1);
 
-    $req .= " FROM ".$nomTable." ";
-    if($where != null)
-    {
-        foreach($where as $key => $value)
-        {
-            $req .= "WHERE ".$key."=";
-            if(gettype($value) == "string")
-                $req .= "'".$value."' ";
-            else
-                $req .= value." ";
-        }
+  $req .= " FROM " . $nomTable . " ";
+  if ($where != null) {
+    foreach ($where as $key => $value) {
+      $req .= "WHERE " . $key . "=";
+      if (gettype($value) == "string")
+        $req .= "'" . $value . "' ";
+      else
+        $req .= $value . " ";
     }
-    $res = mysql_query($req) or die ('ERREUR '.mysql_error());
-    return mysql_fetch_assoc($res);
+  }
+  $res = mysql_query($req) or die ('ERREUR ' . mysql_error());
+  return mysql_fetch_assoc($res);
 }
 
 /*
@@ -145,7 +136,7 @@ function selectionner($nomTable, $donnee, $where = null)
  */
 function cryptage($str)
 {
-    return md5($str);
+  return md5($str);
 }
 
 /*
@@ -155,21 +146,17 @@ function cryptage($str)
  */
 function estCorrect($par)
 {
-    if(!isset($par) || empty($par))
+  if (!isset($par) || empty($par))
+    return false;
+  if (gettype($par) != "array") {
+    return !empty($par);
+  } else {
+    foreach ($par as $valeur) {
+      if (empty($valeur))
         return false;
-    if(gettype($par) != "array")
-    {
-        return !empty($par);
     }
-    else
-    {
-        foreach($par as $valeur)
-        {
-            if(empty($par))
-                return false;
-        }
-        return true;
-    }
+    return true;
+  }
 }
 
 /*
@@ -179,22 +166,20 @@ function estCorrect($par)
  */
 function nbConnecte($nomTable, $where)
 {
-    $req = "SELECT *";
+  $req = "SELECT *";
 
-    $req .= " FROM ".$nomTable." ";
-    if($where != null)
-    {
-        foreach($where as $key => $value)
-        {
-            $req .= "WHERE ".$key."=";
-            if(gettype($value) == "string")
-                $req .= "'".$value."' ";
-            else
-                $req .= value." ";
-        }
+  $req .= " FROM " . $nomTable . " ";
+  if ($where != null) {
+    foreach ($where as $key => $value) {
+      $req .= "WHERE " . $key . "=";
+      if (gettype($value) == "string")
+        $req .= "'" . $value . "' ";
+      else
+        $req .= $value . " ";
     }
-    $res = mysql_query($req) or die ('ERREUR '.mysql_error());
-    return  mysql_num_rows($res);
+  }
+  $res = mysql_query($req) or die ('ERREUR ' . mysql_error());
+  return mysql_num_rows($res);
 }
 
 /*
@@ -204,19 +189,23 @@ function nbConnecte($nomTable, $where)
  */
 function lireQCM($fichier)
 {
-    $f = fopen($fichier, "r");
-    $tab = array();
-    $i = 0;
-    while(!feof($f))
-    {
-        $question = fgets($f);
-        $reponse = fgets($f);
-        $tab[$i] = $question;
-        $tab[$i + 1] = $reponse;
-        $i += 2;
-    }
-    fclose($f);
-    return $tab;
+  $f = fopen($fichier, "rb");
+  $tab = array();
+  $i = 0;
+  while (!feof($f)) {
+    $question = fgets($f);
+    $reponse = fgets($f);
+    $tab[$i] = $question;
+    $tab[$i + 1] = $reponse;
+    $i += 2;
+  }
+  fclose($f);
+  while($i%3 != 0)
+  {
+    array_pop($tab);
+    --$i;
+  }
+  return $tab;
 }
 
 /*
@@ -226,19 +215,44 @@ function lireQCM($fichier)
  */
 function listeMatiere($dossier)
 {
-    $dir = opendir($dossier);
-    $liste = array();
-    $i = 0;
-    while($fichier = readdir($dir))
-    {
-        $tab = explode(".", $fichier);
-        if(count($tab) == 1)
-        {
-          $liste[$i] = $fichier;
-          ++$i;
-        }
+  $dir = opendir($dossier);
+  $liste = array();
+  $i = 0;
+  while ($fichier = readdir($dir)) {
+    $tab = explode(".", $fichier);
+    if (count($tab) == 1) {
+      $liste[$i] = $fichier;
+      ++$i;
     }
-    return $liste;
+  }
+  return $liste;
+}
+
+function effacerFichier($fichier)
+{
+  $f = fopen($fichier, "wb");
+  fputs($f, "");
+  fclose($f);
+}
+
+function sauvegarde($fichier, $question, $proposition, $reponse)
+{
+  $f = fopen($fichier, "ab");
+  fputs($f, $question."\n");
+  $pr = "";
+  foreach($proposition as $p)
+  {
+    $pr .= $p."-";
+  }
+  $pr = substr($pr, 0, -1);
+  fputs($f, $pr."\n");
+  fputs($f, $reponse."\n");
+  fclose($f);
+}
+
+function str_espace($donnee)
+{
+  return str_replace(' ', '&nbsp;', $donnee);
 }
 
 ?>
