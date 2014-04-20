@@ -34,11 +34,11 @@ function ajouter($nomTable, $donnees)
 {
   $req = "INSERT INTO " . $nomTable . " ";
   $req .= "VALUES(";
-  foreach ($donnees as $cle => $valeur) {
-    if (gettype($valeur) == "string")
+  foreach($donnees as $cle => $valeur) {
+    if(gettype($valeur) == "string")
       $req .= "'";
     $req .= $valeur;
-    if (gettype($valeur) == "string")
+    if(gettype($valeur) == "string")
       $req .= "'";
     $req .= ",";
   }
@@ -57,20 +57,20 @@ function maj($nomTable, $donnees, $where)
 {
   $req = "UPDATE " . $nomTable . " ";
   $req .= "SET ";
-  foreach ($donnees as $cle => $valeur) {
+  foreach($donnees as $cle => $valeur) {
     $req .= $cle . "=";
-    if (gettype($valeur) == "string")
+    if(gettype($valeur) == "string")
       $req .= "'";
     $req .= $valeur;
-    if (gettype($valeur) == "string")
+    if(gettype($valeur) == "string")
       $req .= "'";
     $req .= ",";
   }
   $req = substr($req, 0, -1);
-  if ($where != null) {
-    foreach ($where as $key => $value) {
+  if($where != null) {
+    foreach($where as $key => $value) {
       $req .= " WHERE " . $key . "=";
-      if (gettype($value) == "string")
+      if(gettype($value) == "string")
         $req .= "'" . $value . "' ";
       else
         $req .= $value . " ";
@@ -89,10 +89,10 @@ function maj($nomTable, $donnees, $where)
 function supprimer($nomTable, $where)
 {
   $req = "DELETE FROM " . $nomTable;
-  if ($where != null) {
-    foreach ($where as $key => $value) {
+  if($where != null) {
+    foreach($where as $key => $value) {
       $req .= " WHERE " . $key . "=";
-      if (gettype($value) == "string")
+      if(gettype($value) == "string")
         $req .= "'" . $value . "' ";
       else
         $req .= $value . " ";
@@ -110,16 +110,16 @@ function supprimer($nomTable, $where)
 function selectionner($nomTable, $donnee, $where = null)
 {
   $req = "SELECT ";
-  foreach ($donnee as $valeur) {
+  foreach($donnee as $valeur) {
     $req .= $valeur . ",";
   }
   $req = substr($req, 0, -1);
 
   $req .= " FROM " . $nomTable . " ";
-  if ($where != null) {
-    foreach ($where as $key => $value) {
+  if($where != null) {
+    foreach($where as $key => $value) {
       $req .= "WHERE " . $key . "=";
-      if (gettype($value) == "string")
+      if(gettype($value) == "string")
         $req .= "'" . $value . "' ";
       else
         $req .= $value . " ";
@@ -146,13 +146,13 @@ function cryptage($str)
  */
 function estCorrect($par)
 {
-  if (!isset($par) || empty($par))
+  if(!isset($par) || empty($par))
     return false;
-  if (gettype($par) != "array") {
+  if(gettype($par) != "array") {
     return !empty($par);
   } else {
-    foreach ($par as $valeur) {
-      if (empty($valeur))
+    foreach($par as $valeur) {
+      if(empty($valeur))
         return false;
     }
     return true;
@@ -169,10 +169,10 @@ function nbConnecte($nomTable, $where)
   $req = "SELECT *";
 
   $req .= " FROM " . $nomTable . " ";
-  if ($where != null) {
-    foreach ($where as $key => $value) {
+  if($where != null) {
+    foreach($where as $key => $value) {
       $req .= "WHERE " . $key . "=";
-      if (gettype($value) == "string")
+      if(gettype($value) == "string")
         $req .= "'" . $value . "' ";
       else
         $req .= $value . " ";
@@ -192,7 +192,7 @@ function lireQCM($fichier)
   $f = fopen($fichier, "rb");
   $tab = array();
   $i = 0;
-  while (!feof($f)) {
+  while(!feof($f)) {
     $question = fgets($f);
     $reponse = fgets($f);
     $tab[$i] = $question;
@@ -200,8 +200,7 @@ function lireQCM($fichier)
     $i += 2;
   }
   fclose($f);
-  while($i%3 != 0)
-  {
+  while($i % 3 != 0) {
     array_pop($tab);
     --$i;
   }
@@ -218,9 +217,9 @@ function listeMatiere($dossier)
   $dir = opendir($dossier);
   $liste = array();
   $i = 0;
-  while ($fichier = readdir($dir)) {
+  while($fichier = readdir($dir)) {
     $tab = explode(".", $fichier);
-    if (count($tab) == 1) {
+    if(count($tab) == 1) {
       $liste[$i] = $fichier;
       ++$i;
     }
@@ -238,16 +237,33 @@ function effacerFichier($fichier)
 function sauvegarde($fichier, $question, $proposition, $reponse)
 {
   $f = fopen($fichier, "ab");
-  fputs($f, $question."\n");
+  fputs($f, $question);
   $pr = "";
-  foreach($proposition as $p)
-  {
-    $pr .= $p."-";
+  foreach($proposition as $p) {
+    $pr .= $p . "-";
   }
   $pr = substr($pr, 0, -1);
-  fputs($f, $pr."\n");
-  fputs($f, $reponse."\n");
+  fputs($f, $pr);
+  fputs($f, $reponse);
   fclose($f);
+}
+
+function supprimerElement($fichier, $numQuestion)
+{
+  echo "supprimer question";
+  $tab = lireQCM($fichier);
+  $f = fopen($fichier, "w");
+  fputs($f,"");
+  fclose($f);
+  for($i=0; $i<count($tab); $i += 3)
+  {
+    if($i/3 != $numQuestion-1)
+    {
+      $t = explode("-", $tab[$i+1]);
+      sauvegarde($fichier, $tab[$i], $t, $tab[$i+2]);
+    }
+  }
+  echo "question supprim&eacute;";
 }
 
 function str_espace($donnee)
