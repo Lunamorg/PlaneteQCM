@@ -14,7 +14,7 @@
 <?php include('titre.php'); ?>
 <?php include('menu.php'); ?>
 
-<div id=CORPS>
+<div class=CORPS>
     <h3>Inscriptions facile et gratuite !</h3>
 
     <form method="POST" action="traitement.php?type=inscription">
