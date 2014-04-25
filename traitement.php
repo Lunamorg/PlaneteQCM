@@ -19,6 +19,7 @@ if(estCorrect($_GET['type'])) {
     connexion('projet');
     supprimer("planeteqcm", array("pseudo" => $_SESSION['pseudo']));
     deconnexion();
+    session_destroy();
     header('location: traitement.php?type=deconnexion');
   } else if($_GET['type'] == 'connexion') {
     connexion('projet');
@@ -39,6 +40,13 @@ if(estCorrect($_GET['type'])) {
   } else if($_GET['type'] == 'admin') {
     connexion('projet');
     ajouter('planeteqcm', array($_GET['pseudo'], cryptage($_GET['mdp']), $_GET['email'], '0', "false", "1"));
+    deconnexion();
+  } else if(isset($_GET['type']) && $_GET['type'] == "modmdp")
+  {
+    connexion("projet");
+    $var = selectionner("planeteqcm", array("mdp"), array("pseudo" => $_GET['pseudo']));
+    if(cryptage($_POST['amdp']) == $var['mdp'])
+      maj("planeteqcm", array("mdp" => cryptage($_POST['mdp'])), array("pseudo" => $_GET['pseudo']));
     deconnexion();
   }
 } else {

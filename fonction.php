@@ -129,6 +129,30 @@ function selectionner($nomTable, $donnee, $where = null)
   return mysql_fetch_assoc($res);
 }
 
+function selectionnerPlusieurs($nomTable, $donnee, $where = null)
+{
+  $req = "SELECT ";
+  foreach($donnee as $valeur) {
+    $req .= $valeur . ",";
+  }
+  $req = substr($req, 0, -1);
+
+  $req .= " FROM " . $nomTable . " ";
+  if($where != null) {
+    foreach($where as $key => $value) {
+      $req .= "WHERE " . $key . "=";
+      if(gettype($value) == "string")
+        $req .= "'" . $value . "' ";
+      else
+        $req .= $value . " ";
+    }
+  }
+  $res = mysql_query($req) or die ('ERREUR ' . mysql_error());
+  $var = array();
+  for($i = 0; $var[$i] = mysql_fetch_array($res); ++$i);
+  return $var;
+}
+
 /*
  * Crypte la chaine de caracteres passée en argument
  * parametre: chaine de caracteres a crypter

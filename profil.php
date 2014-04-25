@@ -16,11 +16,11 @@
 <?php include('menu.php'); ?>
 
 <div class="CORPS">
-    <form method='post' action='traitement.php?type=suppression'>
+    <?php echo "<form method='post' action='traitement.php?type=modmdp&pseudo=". $_SESSION['pseudo'] ."'>"; ?>
         <fieldset>
             <legend>Modifier mon mot de passe</legend>
-            <label>Mot de passe actuel</label><input type="password"/><br/>
-            <label>Nouveau mot de passe</label><input type="password"/><br/>
+            <label>Mot de passe actuel</label><input type="password" name="amdp" id="amdp"/><br/>
+            <label>Nouveau mot de passe</label><input type="password" name="mdp" id="mdp"/><br/>
             <input type='submit' value='Modifier'/>
         </fieldset>
     </form>
