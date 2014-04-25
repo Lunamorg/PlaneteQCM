@@ -1,7 +1,15 @@
 PlaneteQCM
 ==========
 
-Projet Web
+Pour accéder à la session admin, se connecter avec le pseudo admin et le mot de passe admin.  
+
+
+Fonctionnalités
+===============
+_ QCM : Chaque personne connectée a la possibilité de remplir des qcm  
+_ Espace membre : Connexion et inscription avec le profil contenant les changements d'information ainsi que les résultats  
+_ Session admin :
+ - Editeur de qcm (suppression, ajout, modification)
 
 
 A faire
