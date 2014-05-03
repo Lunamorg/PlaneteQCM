@@ -1,4 +1,4 @@
-Quel est le record du monde du 100m homme ?
+﻿Quel est le record du monde du 100m homme ?
 8sec33-9sec58-10sec24-15sec00
 2
 Quel est le record du monde du 100m femme ?
@@ -7,3 +7,12 @@ Quel est le record du monde du 100m femme ?
 Quel est le record du 10 000 metres homme ?
 22:43 minutes-26:44 minutes-32:25 minutes-35:29 minutes
 2
+Combien y a t'il de disciplines aux jeux olympique d'été?
+24-42-38-15
+3
+En quel année la France a t'elle accueillit les jeux olympiques d'été pour la dernière fois ?
+1789-1924-1972-1990
+2
+Combien y a t'il de discplines aux jeux olympique d'hivers?
+15-24-42-38
+1
