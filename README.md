@@ -53,3 +53,4 @@ Définitif
 PS
 ==
 Pour faire un retour à la ligne, mettre deux espaces à la fin de la ligne
+Envoi un message, mon telephone est mort. J'ai plus ton numero :x
