@@ -14,5 +14,4 @@
           ?>
         </ul>
     </div>
-    <h2>PLANETE QCM</h2>
 </div>

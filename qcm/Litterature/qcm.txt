@@ -5,7 +5,7 @@ Combien d'année fût consacré à la rédaction de l'encyclopédie de Diderot et D'Al
 15 ans-21 ans-28 ans-35 ans
 2
 Qui à écrit Le malade imaginaire ?
-Moliaire-Molière-Moulaire-Molère
+Moliaire-Molière-Molaire-Molère
 2
 En quel année est née Victor Hugo ?
 1722-1782-1802-1852
@@ -19,7 +19,7 @@ Poésie-Romans d'amour-Théatre-Romans historique
 Quels pièces de théatre Molière n'a t'il pas écrit ?
 Le médecin malgré lui-L'iles des esclaves-Les femmes savantes-L'avare
 2
-Dans quel mouvement litérraire Maupassant s'est il illustré?
+Dans quel mouvement litéraire Maupassant s'est il illustré?
 Le Réalisme-Le Romantisme-Le Symbolisme-Le Naturalisme
 1
 Quel oeuvre n'a pas été écrite par Maupassant?
@@ -33,4 +33,7 @@ Voltaire-Diderot-D'Alambert-Rousseau
 4
 En quel année est née Honoré de Balzac ?
 1799-1939-1869-1899
+1
+Qui a écrit le seigneur des anneaux ?
+Tolkien-Georges-Lucas-Rousseaux
 1

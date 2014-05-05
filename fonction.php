@@ -1,35 +1,23 @@
 <?php
-/*
- *  Contient des fonctions pour simplifier le code
- */
-
-
-/*
- * Connexion a la base de donnee
- * parametre: aucun
- * retourne: rien
- */
+/* Contient des fonctions pour simplifier le code */
+ 
+/* Connexion a la base de donnee */
+ 
 function connexion($nomBDD)
 {
   mysql_connect("localhost", "root", "") or die ('ERREUR ' . mysql_error());
   mysql_select_db($nomBDD);
 }
 
-/*
- * Deconnexion de la base de donnee
- * parametre: aucun
- * retourne: rien
- */
+/* Deconnexion de la base de donnee */
+
 function deconnexion()
 {
   mysql_close();
 }
 
-/*
- * Ajoute des donnees a la base de donnee
- * parametre: nom de la table, tableau associatif contenant les donnees
- * retourne: rien
- */
+/* Ajoute des donnees a la base de donnee */
+
 function ajouter($nomTable, $donnees)
 {
   $req = "INSERT INTO " . $nomTable . " ";
@@ -206,11 +194,8 @@ function nbConnecte($nomTable, $where)
   return mysql_num_rows($res);
 }
 
-/*
- * Lit les QCM dans le fichier
- * parametre: le nom du fichier
- * retourne: un tableau dont les indices pairs sont les questions et impairs les reponses
- */
+/* Lit les QCM dans le fichier */
+
 function lireQCM($fichier)
 {
   $f = fopen($fichier, "rb");
@@ -231,11 +216,8 @@ function lireQCM($fichier)
   return $tab;
 }
 
-/*
- * Liste tous les fichiers d'un dossier
- * parametre: le dossier
- * retourne: un tableau contenant les nom des fichiers lu
- */
+/* Liste tous les fichiers d'un dossier */
+
 function listeMatiere($dossier)
 {
   $dir = opendir($dossier);

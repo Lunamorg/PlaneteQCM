@@ -3,39 +3,39 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
-<head>
+  <head>
     <title>Planete QCM</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="generator" content="Geany 1.23.1"/>
     <link rel="stylesheet" type="text/CSS" href="planete.css"/>
-</head>
+  </head>
 
-<body>
+  <body>
 
-<?php include('titre.php'); ?>
-<?php include('menu.php'); ?>
+  <?php include('titre.php'); ?>
+  <?php include('menu.php'); ?>
 
-<div class="CORPS">
+  <div class="IMG_FOND">
+    <div class="CORPS">
     <?php echo "<form method='post' action='traitement.php?type=modmdp&pseudo=". $_SESSION['pseudo'] ."'>"; ?>
-        <fieldset>
-            <legend>Modifier mon mot de passe</legend>
-            <label>Mot de passe actuel</label><input type="password" name="amdp" id="amdp"/><br/>
-            <label>Nouveau mot de passe</label><input type="password" name="mdp" id="mdp"/><br/>
-            <input type='submit' value='Modifier'/>
-        </fieldset>
+    <fieldset>
+      <legend>Modifier mon mot de passe</legend>
+      <label>Mot de passe actuel</label><input type="password" name="amdp" id="amdp"/><br/>
+      <label>Nouveau mot de passe</label><input type="password" name="mdp" id="mdp"/><br/>
+      <input type='submit' value='Modifier'/>
+    </fieldset>
     </form>
     <form method='post' action='traitement.php?type=suppression'>
-        <fieldset>
-            <legend>Supprimer mon compte</legend>
-            <p>
-                Attention: La suppression de compte est irr&eacute;versible !
-            </p>
-            <input type='submit' value='Supprimer compte'/>
-        </fieldset>
+    <fieldset>
+      <legend>Supprimer mon compte</legend>
+      <p>Attention: La suppression de compte est irr&eacute;versible !</p>
+      <input type='submit' value='Supprimer compte'/>
+    </fieldset>
     </form>
-</div>
+    </div>
+  </div>
 
-<?php include('pied.php'); ?>
-</body>
+  <?php include('pied.php'); ?>
+  </body>
 
 </html>
