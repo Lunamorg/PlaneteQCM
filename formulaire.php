@@ -16,7 +16,7 @@
 
   <div class="IMG_FOND">
     <div class="CORPS">
-      <h3>Inscription facile et gratuite !</h3>
+      <h3>Inscription facile et gratuite !</h3> <br/>
       <form method="POST" action="traitement.php?type=inscription">        
         <label>Pseudonyme</label>
         <input type="text" name="pseudo"/> <br/>

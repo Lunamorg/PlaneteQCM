@@ -16,7 +16,7 @@
   <div class=IMG_FOND>
     <div class="CORPS">
       <p>Merci de vous être enregistré.</p>
-  </div>
+    </div>
   </div>
   <?php include('pied.php'); ?>
   </body>

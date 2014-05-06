@@ -15,7 +15,7 @@
 
   <div class="IMG_FOND">
     <div class="CORPS">
-    <h3>Connectez-vous à notre site.</h3>
+    <h3>Connectez-vous à notre site.</h3> <br/>
     <?php
     if(isset($_GET["err"])) {
       if($_GET["err"] == "con") {

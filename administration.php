@@ -16,35 +16,35 @@
 
   <div class="IMG_FOND">
     <div class="CORPS">
-    <?php
-    include_once("fonction.php");
-    if(isset($_GET['type']) && $_GET['type'] == "sup")
-    {
-      connexion("projet");
-      supprimer("planeteqcm", array("pseudo" => $_GET['pseudo']));
-      deconnexion();
-      header('Location: administration.php');
-    }
-    else
-    {
-      connexion("projet");
-      $donnee = selectionnerPlusieurs("planeteqcm", array("*"));
-      deconnexion();
-      echo "<table>";
-      echo "<thead>";
-      echo "<td>Pseudo</td><td>Score</td><td>Privilege</td>";
-      echo "</thead>";
-      for($i = 0; $i < count($donnee) - 1; ++$i)
+      <?php
+      include_once("fonction.php");
+      if(isset($_GET['type']) && $_GET['type'] == "sup")
       {
-        echo "<tr>";
-        echo "<td>" . $donnee[$i]['pseudo'] . "</td><td>" . $donnee[$i]['score'] . "</td><td>" . $donnee[$i]['privilege'] . "</td><td>
-        <a href='administration.php?type=sup&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/sup.png' alt='Supprimer'/></a></td><br>";
-        echo "</tr>";
+        connexion("projet");
+        supprimer("planeteqcm", array("pseudo" => $_GET['pseudo']));
+        deconnexion();
+        header('Location: administration.php');
       }
-      echo "</table>";
-    }
-    ?>
-  </div>
+      else
+      {
+        connexion("projet");
+        $donnee = selectionnerPlusieurs("planeteqcm", array("*"));
+        deconnexion();
+        echo "<table id='admin'>";
+        echo "<thead>";
+        echo "<th>Pseudo</th><th>Score</th><th>Privilege</th>";
+        echo "</thead>";
+        for($i = 0; $i < count($donnee) - 1; ++$i)
+        {
+          echo "<tr>";
+          echo "<td>" . $donnee[$i]['pseudo'] . "</td><td>" . $donnee[$i]['score'] . "</td><td>" . $donnee[$i]['privilege'] . "</td><td>
+          <a href='administration.php?type=sup&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/sup.png' alt='Supprimer'/></a></td><br>";
+          echo "</tr>";
+        }
+        echo "</table>";
+      }
+      ?>
+    </div>
   </div>
   <?php include('pied.php'); ?>
   </body>

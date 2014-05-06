@@ -19,19 +19,17 @@
       <div class="CORPS">
         <?php
         if(!isset($_GET['type'])) {
-          echo "<p>Liste des matières :<br/>";
+          echo "<p>Editer / Supprimer un QCM<br/>";
           foreach(listeMatiere("qcm") as $matiere) {
             echo $matiere . "<a href='editeur.php?type=mod&matiere=" . $matiere . "'><img src='images/modif.png' alt='Modifier'/></a>
           <a href='editeur.php?type=sup&matiere=" . $matiere . "'><img src='images/sup.png' alt='Supprimer'/></a><br/>";
           }
           echo "</p>
           <form method='post' action='editeur.php?type=add'>
-            <fieldset>
-              <legend>Nouveau QCM</legend>
-              <p>Le nom du qcm doit commencer par une majuscule, ne pas contenir de caractères sp&eacute;ciaux (accents compris) et ne doit pas exister. </p>
-              <input type='text' name='matiere' id='matiere'/>
-              <input type='submit' value='Cr&eacute;er'/>
-            </fieldset>
+            <p>Creer un QCM</p>
+            <p>Le nom du qcm doit commencer par une majuscule, ne pas contenir de caractères sp&eacute;ciaux (accents compris) et ne doit pas exister. </p>
+            <input type='text' name='matiere' id='matiere'/>
+            <input type='submit' value='Cr&eacute;er'/>            
           </form>";
         } else if($_GET['type'] == 'sup') {
           unlink("qcm/" . $_GET['matiere'] . "/qcm.txt");

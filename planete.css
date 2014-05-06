@@ -11,19 +11,43 @@ body
   margin: 0;
   padding: 0;
   color : white;
+  border-collapse : collapse;
 }
-
+input 
+{
+  color : black;
+}
 /*------------ Entete--------------------------------------------------------------- */
 /* Titre de nos pages */
 
 #EN_TETE
 {
     width: 100%;    
-    height: 86px;
+    height: auto;
+    min-height : 85px;
     background-image:url(images/Header.png);
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    
+}
+/* Titre utilisé dans profil.php */
+.CORPS h4
+{
+  padding-bottom : 2px;
+  padding-top : 2px; 
+  font-size : 18px;
+  color : RGB(30, 30, 30);
+}
+/* Tableau dans administrateur.php */
+#admin th
+{
+  font-size : 1em;
+  width : 100px;
+  height : auto;
+  text-align : left;
+  text-decoration : none;
+  color : RGB(30, 30, 30);
 }
 
 /* Propriété du MENU */
@@ -31,7 +55,7 @@ body
 #MENU
 {
   background-image:url(images/Menu.png);
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   width : 100%;
@@ -46,12 +70,14 @@ body
 #menu_tableau
 {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;  
+  text-align : left;
 }
 
 #menu_tableau td
 {
   width: 100px;
+  height : auto;
   font-size: 20px;
 }
 
@@ -71,8 +97,7 @@ body
 
 .est_select
 {
-  border-bottom: solid 4px  RGB(114, 192, 44);
-  color: RGB(114, 192, 44);
+  
 }
 
 /*------------ Menu connexion--------------------------------------------------------------- */
@@ -114,7 +139,7 @@ body
 .IMG_FOND
 {  
   background-image:url(images/Body.png);  
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position : center;
   background-attachment: fixed;
@@ -122,12 +147,13 @@ body
   margin-left: auto;
   margin-right: auto;
   width: 800px;
+  height : auto;
   min-height: 600px;
 }
 
 .CORPS
 {
-  font-size : 18px;
+  font-size : 17px;
   width : 700px;
   padding-top : 10px;
   margin-right : auto;
@@ -184,7 +210,7 @@ body
   margin-right: auto;
   margin-left: auto;
   background-image:url(images/Footer.png);
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
