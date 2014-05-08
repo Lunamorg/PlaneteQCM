@@ -196,22 +196,61 @@ function nbConnecte($nomTable, $where)
 
 /* Lit les QCM dans le fichier */
 
-function lireQCM($fichier)
+function lireQCM($fichier, $aleatoire)
 {
   $f = fopen($fichier, "rb");
   $tab = array();
   $i = 0;
+  $nbQcm = 0;
   while(!feof($f)) {
     $question = fgets($f);
     $reponse = fgets($f);
     $tab[$i] = $question;
     $tab[$i + 1] = $reponse;
     $i += 2;
+    $nbQcm += 2;
   }
   fclose($f);
   while($i % 3 != 0) {
     array_pop($tab);
     --$i;
+    --$nbQcm;
+  }
+  /*
+   * Generation de 10 nombres aleatoires différents
+   */
+  if($aleatoire == true)
+  {
+    $index = array();
+    for($var = 0; $var < 10; ++$var)
+    {
+      $continuer = true;
+      while($continuer == true)
+      {
+        $continuer = false;
+        $aleat = mt_rand(0, $nbQcm/3 - 1);
+
+        for($var2 = 0; $var2 < $var; ++$var2)
+        {
+          if($aleat == $index[$var2])
+          {
+            $continuer = true;
+            break;
+          }
+        }
+        if($continuer == false)
+          $index[$var] = $aleat;
+      }
+    }
+
+
+    $tab2 = array();
+    for($var = 0; $var < 10; ++$var)
+    {
+      for($var2 = 0; $var2 < 3; ++$var2)
+        $tab2[$var*3+$var2] = $tab[$index[$var]*3+$var2];
+    }
+    return $tab2;
   }
   return $tab;
 }
@@ -246,7 +285,7 @@ function sauvegarde($fichier, $question, $proposition, $reponse)
   fputs($f, $question);
   $pr = "";
   foreach($proposition as $p) {
-    $pr .= $p . "-";
+    $pr .= $p . "$";
   }
   $pr = substr($pr, 0, -1);
   fputs($f, $pr);
@@ -275,6 +314,21 @@ function supprimerElement($fichier, $numQuestion)
 function str_espace($donnee)
 {
   return str_replace(' ', '&nbsp;', $donnee);
+}
+
+function score($score, $pseudo)
+{
+  connexion("projet");
+  $res = selectionner("planeteqcm", array("qcm", "bonreponse"), array("pseudo" => $pseudo));
+  maj("planeteqcm", array("qcm" => $res["qcm"] + 1, "bonreponse" => $score + $res["bonreponse"]), array("pseudo" => $pseudo));
+  deconnexion();
+}
+
+function prcent($num, $den)
+{
+  if($den == 0)
+    return 0;
+  return number_format($num * 100 / $den, 2);
 }
 
 ?>

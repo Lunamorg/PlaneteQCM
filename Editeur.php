@@ -45,7 +45,7 @@
           $reponse = array();
           $score = 0;
 
-          foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt") as $valeur) {
+          foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", false) as $valeur) {
             if($i % 3 == 2) {
               $reponse[$j] = $valeur;
               ++$j;
@@ -57,12 +57,12 @@
           $i = 0;
           $j = 0;
           $k = 0;
-          foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt") as $valeur) {
+          foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", false) as $valeur) {
 
             if($i % 3 == 0) {
               echo '<div class="qr"><label>Question ' . (floor($i / 3)+1) . ' : </label> <input type="text" name="question' . (floor($i / 3)) . '" value=' . str_espace($valeur) . ' /><a class="a_qcm" href="editeur.php?type=supquestion&matiere=' . $_GET['matiere'] . '&question=' . (floor($i / 3)+1) . '">Supprimer</a><br/>';
             } else if($i % 3 == 1) {
-              $tab = explode("-", $valeur);
+              $tab = explode("$", $valeur);
               $j = 0;
               foreach($tab as $val) {
                 ++$j;
@@ -88,7 +88,7 @@
           echo '<input type="submit" value="Ajouter"/>';
           echo '</div></form>';
         } else if($_GET['type'] == 'sav') {
-          $taille = count(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt")) / 3;
+          $taille = count(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", false)) / 3;
           effacerFichier("qcm/" . $_GET['matiere'] . "/qcm.txt");
           for($j = 0; $j < $taille; ++$j) {
             $reponse = array();
