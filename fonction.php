@@ -117,6 +117,9 @@ function selectionner($nomTable, $donnee, $where = null)
   return mysql_fetch_assoc($res);
 }
 
+/*
+ * Selectionne plusieurs resultat dans la base de donnee (plusieurs 'membres')
+ */
 function selectionnerPlusieurs($nomTable, $donnee, $where = null)
 {
   $req = "SELECT ";
@@ -139,6 +142,30 @@ function selectionnerPlusieurs($nomTable, $donnee, $where = null)
   $var = array();
   for($i = 0; $var[$i] = mysql_fetch_array($res); ++$i);
   return $var;
+}
+
+/*
+ * fonction de comparaison pour la fonction usort contenu dans rangerParScore
+ */
+function cmp($a, $b)
+{
+  return ($a['score'] < $b['score']) - ($a['score'] > $b['score']);
+}
+
+/*
+ * Range la table de donnee par ordre décroissant des scores
+ */
+function rangerParScore($nomTable, $donnee, $where = null)
+{
+  $resultat = selectionnerPlusieurs($nomTable, $donnee, $where);
+  $tab = array();
+  for($i = 0; $i < count($resultat)-1; ++$i)
+  {
+    $tab[$i] = array('score' =>  prcent($resultat[$i]['bonreponse'], $resultat[$i]['qcm']*10),
+                     'pseudo' => $resultat[$i]['pseudo']);
+  }
+  usort($tab, "cmp");
+  return $tab;
 }
 
 /*
@@ -194,8 +221,9 @@ function nbConnecte($nomTable, $where)
   return mysql_num_rows($res);
 }
 
-/* Lit les QCM dans le fichier */
-
+/*
+ *  Lit les QCM dans le fichier
+ */
 function lireQCM($fichier, $aleatoire)
 {
   $f = fopen($fichier, "rb");
@@ -255,8 +283,9 @@ function lireQCM($fichier, $aleatoire)
   return $tab;
 }
 
-/* Liste tous les fichiers d'un dossier */
-
+/*
+  *Liste tous les fichiers d'un dossier
+ */
 function listeMatiere($dossier)
 {
   $dir = opendir($dossier);
@@ -272,6 +301,9 @@ function listeMatiere($dossier)
   return $liste;
 }
 
+/*
+ * Efface le contenu d'un fichier
+ */
 function effacerFichier($fichier)
 {
   $f = fopen($fichier, "wb");
@@ -279,6 +311,9 @@ function effacerFichier($fichier)
   fclose($f);
 }
 
+/*
+ * Sauvegarde dans le fichier les donnees passees en parametre
+ */
 function sauvegarde($fichier, $question, $proposition, $reponse)
 {
   $f = fopen($fichier, "ab");
@@ -293,6 +328,9 @@ function sauvegarde($fichier, $question, $proposition, $reponse)
   fclose($f);
 }
 
+/*
+ * Supprime un element du fichier
+ */
 function supprimerElement($fichier, $numQuestion)
 {
   echo "supprimer question";
@@ -311,11 +349,18 @@ function supprimerElement($fichier, $numQuestion)
   echo "question supprim&eacute;";
 }
 
+
+/*
+ * Remplace les espaces par l'encodage html
+ */
 function str_espace($donnee)
 {
   return str_replace(' ', '&nbsp;', $donnee);
 }
 
+/*
+ * Enregistre dans la base de donnee le nouveau score
+ */
 function score($score, $pseudo)
 {
   connexion("projet");
@@ -324,6 +369,9 @@ function score($score, $pseudo)
   deconnexion();
 }
 
+/*
+ * calcule le pourcentage de bonne reponse
+ */
 function prcent($num, $den)
 {
   if($den == 0)
