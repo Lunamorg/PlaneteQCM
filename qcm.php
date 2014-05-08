@@ -91,11 +91,11 @@
           ++$i;
           if($i % 2 != 0) {
             echo " <tr>
-                     <td style='background-image: url(images/" . $valeur . ".jpg);'>
+                     <td style='background-image: url(images/" . $valeur . ".png);'>
                        <a href='qcm.php?matiere=" . $valeur . "&amp;cor=false'>Commencer</a>
                      </td>";
           } else {
-            echo "   <td style='background-image: url(images/" . $valeur . ".jpg);'>
+            echo "   <td style='background-image: url(images/" . $valeur . ".png);'>
                        <a href='qcm.php?matiere=" . $valeur . "&amp;cor=false'>Commencer</a>
                      </td>
                    </tr> ";
