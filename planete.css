@@ -4,8 +4,7 @@ body
 {
   background-color: RGB(124, 138, 141);
 }
-
-/* Reset des marges par défaut */
+/* Paramètre par défaut */
 *
 {
   margin: 0;
@@ -13,13 +12,12 @@ body
   color : white;
   border-collapse : collapse;
 }
+
 input 
 {
   color : black;
 }
-/*------------ Entete--------------------------------------------------------------- */
 /* Titre de nos pages */
-
 #EN_TETE
 {
     width: 100%;    
@@ -37,7 +35,7 @@ input
   padding-bottom : 2px;
   padding-top : 2px; 
   font-size : 18px;
-  color : RGB(30, 30, 30);
+  color : RGB(0, 0, 55);
 }
 /* Tableau dans administrateur.php */
 #admin th
@@ -49,9 +47,7 @@ input
   text-decoration : none;
   color : RGB(30, 30, 30);
 }
-
 /* Propriété du MENU */
-
 #MENU
 {
   background-image:url(images/Menu.png);
@@ -61,12 +57,11 @@ input
   width : 100%;
   height : auto;
 }
-
 #MENU a:hover
 {
   color: white;
 }
-
+/* Tableau MENU */
 #menu_tableau
 {
   margin-left: auto;
@@ -76,13 +71,11 @@ input
 
 #menu_tableau td
 {
-  width: 100px;
+  width: 15%;
   height : auto;
-  font-size: 20px;
+  font-size: 1.1em;
 }
-
-/* Propriétés sur les liens */
-
+/* Propriétés sur les liens du tableau menu */
 #menu_tableau a
 {
   text-decoration: none;
@@ -94,12 +87,6 @@ input
   text-decoration : none;
   color: RGB(22, 39, 190);
 }
-
-.est_select
-{
-  
-}
-
 /*------------ Menu connexion--------------------------------------------------------------- */
 #menu_connexion
 {
@@ -190,14 +177,13 @@ input
   width: 100px;
   margin-top: 175px;
   margin-left: 50px;
-  background-color: RGB(114, 192, 44);
   text-align: center;
   color: white;
 }
 
 .choix_matiere a:hover
 {
-    background-color:  RGB(114, 220, 44);
+    background-color:  RGB(7, 30, 63);
 }
 
 /* Bas de nos pages */

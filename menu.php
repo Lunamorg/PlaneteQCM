@@ -3,9 +3,9 @@
     <tr>
     <!-- Les th sont la juste pour passer la validation -->
     <th></th>
-    <td><a <?php if($_SERVER['REQUEST_URI'] == "/PlaneteQCM/planete.php") echo "class='est_select'" ?> href="planete.php" title="accueil">Accueil</a></td>
-    <td><a <?php if($_SERVER['REQUEST_URI'] == "/PlaneteQCM/qcm.php") echo "class='est_select'" ?>  href="qcm.php" title="QCM">QCM</a></td>
-    <td><a <?php if($_SERVER['REQUEST_URI'] == "/PlaneteQCM/leaderboard.php") echo "class='est_select'" ?>  href="leaderboard.php" title="LeaderBoard">LeaderBoard</a></td>
+    <td><a href="planete.php" title="accueil">Accueil</a></td>
+    <td><a href="qcm.php" title="QCM">QCM</a></td>
+    <td><a href="leaderboard.php" title="LeaderBoard">LeaderBoard</a></td>
     <?php
     if(isset($_SESSION['privilege']) && $_SESSION['privilege'] == '1')
     {
