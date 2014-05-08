@@ -1,9 +1,39 @@
-Qui à écrit les lettres Persanes ?Montesquieu-D'Alembert-Voltaire-Diderot1Combien d'année fût consacré à la rédaction de l'encyclopédie de Diderot et d'Alembert ?15 ans-21 ans-28 ans -35 ans2En quelle année est née Victor Hugo ?1722-1782-1802-18523Que dénonce Victor Hugo dans son roman intitulé Claude Gueux ?L'esclavage-La peine de mort-La pauvreté-La médecine2A quel genre littéraire Les misérable appartient-il ?Poésie-Roman d'amour-Théâtre-Roman historique4Quels pièces de théâtre Molière n'a t'il pas écrit ?Le médecin malgré lui-L'îles des esclaves-Les femmes savantes-L'avare2Dans quel mouvement littéraire Maupassant s'est il illustré ?Le réalisme-Le romantisme-Le symbolisme-Le naturalisme1Qui à écrit les lettres Persanes ?
-Montesquieu-D'Alembert-Voltaire-Diderot
+Qui a écrit les lettres Persanes ?
+Montesquieu$D'Alembert$Voltaire$Diderot
 1
-Combien d'année fût consacré à la rédaction de l'encyclopédie de Diderot et d'Alembert ?
-15 ans-21 ans-28 ans -35 ans
+Combien d'année fut consacrée à la rédaction de l'encyclopédie de Diderot et D'Alembert?
+15 ans$21 ans$28 ans$35 ans
 2
-En quelle année est née Victor Hugo ?
-1722-1782-1802-1852
-
+Qui a écrit Le malade imaginaire ?
+Moliaire$Molière$Molaire$Molère
+2
+En quel année est née Victor Hugo ?
+1722$1782$1802$1852
+3
+Que dénonce Victore Hugo dans son roman intitulélaude Gueux ?
+L'esclavage$La peine de mort$La pauvreté$La médecine
+2
+A quel genre litéraire Les misérable appartient t'il ?
+Poésie$Romans d'amour$Théâtre$Romans historique
+4
+Quels pièces de théâtre Molière n'a t'il pas écrit ?
+Le médecin malgré lui$L'iles des esclaves$Les femmes savantes$L'avare
+2
+Dans quel mouvement litéraire Maupassant s'est il illustré?
+Le Réalisme$Le Romantisme$Le Symbolisme$Le Naturalisme
+1
+Quel oeuvre n'a pas été écrite par Maupassant?
+Le Horla$Bel Ami$Le Dernier jour d'un condamné$Pierre et Jean
+3
+Quel oeuvre n'a pas été écrite par Gustave Flaubert ?
+Madame Bovary$Les confessions$Trois contes$Le candidat
+2
+Quel célèbre écrivain a abandonné ses 5 enfants à l'assistance publique ?
+Voltaire$Diderot$D'Alambert$Rousseau
+4
+En quel année est née Honoré de Balzac ?
+1799$1939$1869$1899
+1
+Qui a écrit le seigneur des anneaux ?
+Tolkien$Georges$Lucas$Rousseaux
+1
