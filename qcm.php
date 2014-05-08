@@ -82,6 +82,7 @@
           ++$i;
         }
         echo "<h4>SCORE: " . $score . "/" . floor($i / 3) . "-" . number_format($score * 100 / floor($i / 3), 2) . "% </h4>";
+        score($score, $_SESSION['pseudo']);
       } 
       else {
         $i = 0;
