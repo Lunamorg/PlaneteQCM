@@ -9,7 +9,7 @@ if(estCorrect($_GET['type'])) {
   if($_GET['type'] == 'inscription') {
     if(estCorrect(array($_POST['pseudo'], $_POST['mdp'], $_POST['email']))) {
       connexion('projet');
-      ajouter('planeteqcm', array($_POST['pseudo'], cryptage($_POST['mdp']), $_POST['email'], '0', "true", "0"));
+      ajouter('planeteqcm', array($_POST['pseudo'], cryptage($_POST['mdp']), $_POST['email'], "true", "0", "0", "0"));
       deconnexion();
       $_SESSION['pseudo'] = $_POST['pseudo'];
 
