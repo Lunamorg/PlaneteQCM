@@ -23,13 +23,13 @@
           header("Location: connexion.php?err=con");
         echo '<form method="post" action="qcm.php?matiere=' . $_GET['matiere'] . '&amp;cor=true"><div>';
         $i = 0;
-        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt") as $valeur) {
+        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", true) as $valeur) {
 
         if($i % 3 == 0) {
           echo "<p>" . $valeur . "</p><br/>";
         }
         else if($i % 3 == 1) {
-          $tab = explode("-", $valeur);
+          $tab = explode("$", $valeur);
           $j = 0;
           foreach($tab as $val) {
             ++$j;
@@ -49,7 +49,7 @@
         $reponse = array();
         $score = 0;
 
-        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt") as $valeur) {
+        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", true) as $valeur) {
           if($i % 3 == 2) {
             $reponse[$j] = $valeur;
             ++$j;
@@ -58,12 +58,12 @@
         }
         $i = 0;
         $k = 0;
-        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt") as $valeur) {
+        foreach(lireQCM("qcm/" . $_GET['matiere'] . "/qcm.txt", true) as $valeur) {
           if($i % 3 == 0) {
             echo "<p>" . $valeur . "</p><br/>";
           } 
           else if($i % 3 == 1) {
-            $tab = explode("-", $valeur);
+            $tab = explode("$", $valeur);
             $j = 0;
             foreach($tab as $val) {
               ++$j;
@@ -82,6 +82,7 @@
           ++$i;
         }
         echo "<h4>SCORE: " . $score . "/" . floor($i / 3) . "-" . number_format($score * 100 / floor($i / 3), 2) . "% </h4>";
+        score($score, $_SESSION['pseudo']);
       } 
       else {
         $i = 0;

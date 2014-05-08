@@ -18,6 +18,22 @@
   <div class="IMG_FOND">
     <div class="CORPS">
       <h4>Résultats</h4>
+      <?php
+      include_once("fonction.php");
+      connexion("projet");
+      $donnee = selectionner("planeteqcm", array("qcm", "bonreponse"), array("pseudo" => $_SESSION['pseudo']));
+      deconnexion();
+      ?>
+      <table>
+        <thead>
+          <th>Score</th>
+          <th>QCM</th>
+        </thead>
+          <tr>
+            <td><?php echo prcent($donnee['bonreponse'], $donnee['qcm']*10)?></td>
+            <td><?php echo $donnee['qcm']?></td>
+          </tr>
+      </table>
       <?php echo "<form method='post' action='traitement.php?type=modmdp&pseudo=". $_SESSION['pseudo'] ."'>"; ?>
       <h4>Changement de mot de passe</h4>
       <label>Actuel</label><input type="password" name="amdp" id="amdp"/><br/>

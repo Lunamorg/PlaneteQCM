@@ -25,6 +25,13 @@
         deconnexion();
         header('Location: administration.php');
       }
+      else if(isset($_GET['type']) && $_GET['type'] == "reset")
+      {
+        connexion("projet");
+        maj("planeteqcm", array("qcm" => "0", "bonreponse" => "0"), array("pseudo" => $_GET['pseudo']));
+        deconnexion();
+        header('Location: administration.php');
+      }
       else
       {
         connexion("projet");
@@ -32,12 +39,13 @@
         deconnexion();
         echo "<table id='admin'>";
         echo "<thead>";
-        echo "<th>Pseudo</th><th>Score</th><th>Privilege</th>";
+        echo "<th>Pseudo</th><th>Mail</th><th>Score</th><th>QCM(s) réalisé(s)</th><th>Privilege</th>";
         echo "</thead>";
         for($i = 0; $i < count($donnee) - 1; ++$i)
         {
           echo "<tr>";
-          echo "<td>" . $donnee[$i]['pseudo'] . "</td><td>" . $donnee[$i]['score'] . "</td><td>" . $donnee[$i]['privilege'] . "</td><td>
+          echo "<td>" . $donnee[$i]['pseudo'] . "</td><td>". $donnee[$i]['email'] ."</td><td>" . prcent($donnee[$i]['bonreponse'], $donnee[$i]['qcm']*10) . "</td><td>". $donnee[$i]['qcm'] ."</td><td>" . $donnee[$i]['privilege'] . "</td><td>
+          <a href='administration.php?type=reset&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/reset.png' alt='Reset score'/></a>
           <a href='administration.php?type=sup&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/sup.png' alt='Supprimer'/></a></td><br>";
           echo "</tr>";
         }
