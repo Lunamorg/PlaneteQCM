@@ -40,8 +40,12 @@
           </form>";
         } else if($_GET['type'] == 'sup') {
           supprimer_editeur($_GET['matiere']);
+          header('Location: editeur.php');
+          return;
         } else if($_GET['type'] == 'add') {
           ajouter_editeur($_POST['matiere']);
+          header('Location: editeur.php');
+          return;
         } else if($_GET['type'] == 'mod') {
           /**
            * Du html est ecrit dans cet fonction
@@ -49,12 +53,18 @@
           modifier_editeur($_GET['matiere']);
         } else if($_GET['type'] == 'sav') {
           sauvegarderPlusieurs_editeur($_GET[matiere], $_POST);
+          header('Location: editeur.php');
+          return;
         } else if($_GET['type'] == 'savun') {
           sauvegarderUn_editeur($_GET['matiere'], $_POST);
+          header('Location: editeur.php?type=mod&matiere='. $_GET['matiere']);
+          return;
         }
         else if($_GET['type'] == 'supquestion')
         {
-          supprimerElement("qcm/" . $_GET['matiere'] . "/qcm.txt", $_GET['question']);
+          supprimerElement_editeur("qcm/" . $_GET['matiere'] . "/qcm.txt", $_GET['question']);
+          header('Location: editeur.php?type=mod&matiere='. $_GET['matiere']);
+          return;
         }
         ?>
       </div>

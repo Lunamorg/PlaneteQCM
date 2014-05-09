@@ -328,27 +328,6 @@ function sauvegarde($fichier, $question, $proposition, $reponse)
   fclose($f);
 }
 
-/*
- * Supprime un element du fichier
- */
-function supprimerElement($fichier, $numQuestion)
-{
-  echo "supprimer question";
-  $tab = lireQCM($fichier, false);
-  $f = fopen($fichier, "w");
-  fputs($f,"");
-  fclose($f);
-  for($i=0; $i<count($tab); $i += 3)
-  {
-    if($i/3 != $numQuestion-1)
-    {
-      $t = explode("-", $tab[$i+1]);
-      sauvegarde($fichier, $tab[$i], $t, $tab[$i+2]);
-    }
-  }
-  echo "question supprim&eacute;";
-}
-
 
 /*
  * Remplace les espaces par l'encodage html
@@ -380,6 +359,26 @@ function prcent($num, $den)
 }
 
 /*********************************** Fonctions editeur.php ***************************************/
+/*
+ * Supprime un element du fichier
+ */
+function supprimerElement_editeur($fichier, $numQuestion)
+{
+  $tab = lireQCM($fichier, false);
+  $f = fopen($fichier, "w");
+  fputs($f,"");
+  fclose($f);
+  for($i=0; $i<count($tab); $i += 3)
+  {
+    if($i/3 != $numQuestion-1)
+    {
+      $t = explode("$", $tab[$i+1]);
+      sauvegarde($fichier, $tab[$i], $t, $tab[$i+2]);
+    }
+  }
+}
+
+
 function supprimer_editeur($matiere)
 {
   unlink("qcm/" . $matiere . "/qcm.txt");
