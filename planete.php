@@ -21,16 +21,28 @@
         <p>Inscrivez-vous gratuitement et venez tester vos connaissances sur l'un de nos QCM.</p>
         <p>De nombreux QCM seront ajouté dans les jours à venir.</p>
         <p>Amusez-vous bien !</p> <br/>
-        <h2>Présentation</h2>
+        <h2 style="text-align: center;">Présentation</h2>
         <br/>
         <br/>
-        <img src="images/pres_choix.png" style="width:150px; height:150px"/>
-        <p class="float_right">Choissisez la matière que vous voulez traiter</p>
 
-        <p class="float_left">Répondez à 10 questions proposées aléatoirement</p>
-        <img src="images/pres_qcm.png" style="width:150px; height:150px"/>
+        <div style="text-align: center">
+          <div style="text-align: center; width: 250px; text-align: center; display: inline-block;">
+            <img src="images/pres_choix.png" style="width:200px; height:200px;"/>
+            <p style="text-align: center;">Choissisez votre matière préférée.</p>
+          </div>
 
-        <p style="text-align: center;">Amusez-vous bien !</p>
+          <div style="width: 250px; text-align: center; display: inline-block;">
+            <img src="images/pres_qcm.png" style="width:200px; height:200px;  display: inline-block;"/>
+            <p >Répondez à 10 questions proposées aléatoirement.</p>
+          </div>
+
+          <div style="width: 250px; text-align: center; display: inline-block;">
+            <img src="images/pres_leaderboard.png" style="width:200px; height:200px;  display: inline-block;"/>
+            <p >Regardez votre classement par rapport aux autres.</p>
+          </div>
+        </div>
+
+        <p style="text-align: center; padding-top: 100px;">Amusez-vous bien !</p>
         <br/>
         <p style="text-align: right;" id="signature"><em>L'équipe Planète QCM.</em></p>
 
