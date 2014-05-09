@@ -226,7 +226,8 @@ input
 /* Lien */
 .choix_matiere a
 {
-  text-decoration: none; 
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.5);
   display: block;
   width: 100px;
   margin-top: 175px;
@@ -237,7 +238,7 @@ input
 /* Lien survolé */
 .choix_matiere a:hover
 {
-  background-color:  RGB(7, 30, 63);
+  background-color:  rgba(70, 87, 96, 0.8);
 }
 
 .rep_bon
