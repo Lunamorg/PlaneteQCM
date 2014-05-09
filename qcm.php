@@ -27,6 +27,7 @@
         if(count($_POST) == 0)
           header("Location: qcm.php");
         corrige_qcm($_GET['matiere'], $_POST, $_SESSION['pseudo']);
+        echo "<a style='text-align: center;' href='qcm.php' alt='Retour au choix du qcm'>Retour</a>";
       } 
       else {
         choixMatiere_qcm();
