@@ -1,11 +1,12 @@
-
-  <div id="PIED">
+<div id="fond_perdu_pied">
+  <div id="PIED_PAGE">
     <table id="pied_tableau">
       <tr>
         <td><?php
           include_once("fonction.php");
           connexion("projet");
-          echo nbConnecte("planeteqcm", array("connecte" => "true")) . " membre(s)";
+          $con = nbConnecte("planeteqcm", array("connecte" => "true"));
+          echo  $con . " membre" . (($con > 1) ? "s" : "") ." connecté". (($con > 1) ? "s" : "");
           deconnexion();
           ?>
         </td>
@@ -18,4 +19,4 @@
       </tr>
     </table>
   </div>
-
+</div>

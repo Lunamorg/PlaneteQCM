@@ -31,6 +31,14 @@ if(estCorrect($_GET['type'])) {
       connexion('projet');
       maj("planeteqcm", array("connecte" => "true"), array("pseudo" => $_POST['pseudo']));
       deconnexion();
+
+      header('Location: planete.php');
+      return;
+    }
+    else
+    {
+      header('Location: connexion.php?err=mdp');
+      return;
     }
   } else if($_GET['type'] == 'deconnexion') {
     connexion('projet');

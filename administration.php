@@ -39,7 +39,7 @@
         deconnexion();
         echo "<table id='admin'>";
         echo "<thead>";
-        echo "<th>Pseudo</th><th>Mail</th><th>Score</th><th>QCM(s) réalisé(s)</th><th>Privilege</th>";
+        echo "<td>Pseudo</td><td>Mail</td><td>Score</td><td>QCM(s) réalisé(s)</td><td>Privilege</td>";
         echo "</thead>";
         for($i = 0; $i < count($donnee) - 1; ++$i)
         {

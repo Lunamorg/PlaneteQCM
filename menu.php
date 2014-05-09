@@ -1,4 +1,4 @@
-<div id="menu_perdu">
+<div id="fond_perdu_menu">
   <div id="MENU">
     <table id="menu_tableau">
       <tr>
@@ -12,8 +12,7 @@
       {
         $var = "";
         if($_SERVER['REQUEST_URI'] == '/PlaneteQCM/editeur.php')
-        $var = 'class="est_select"';
-        echo '<td><a '. $var .'href="editeur.php" title="Editeur">Editeur</a></td>';
+        echo '<td><a href="editeur.php" title="Editeur">Editeur</a></td>';
       }
       ?>
       </tr>

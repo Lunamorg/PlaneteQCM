@@ -37,7 +37,7 @@ Tennis : Combien de temps à duré le match homme le plus long jamais enregistr�
 Boxe : En quel année a été diffusion le premier match de boxe à la télévision ?
 1928$1938$1948$1958
 2
-Boxe : En quel année a été créé le protège$dent ?
+Boxe : En quel année a été créé le protège-dent ?
 1902$1907$1912$1917
 1
 Boxe : Le record du KO le plus rapide est de : ?

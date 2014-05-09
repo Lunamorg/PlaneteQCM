@@ -1,4 +1,4 @@
-<div id="fond_perdu">
+<div id="fond_perdu_header">
   <div id="EN_TETE">
     <div id="menu_connexion">
         <ul>

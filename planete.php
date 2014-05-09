@@ -16,13 +16,24 @@
 
     <div class="IMG_FOND">
       <div class="CORPS">
-        <h3>News : 25 avril 2014</h3> <br/>
-        <p>Bonjour et bienvenue sur Planète QCM.</p>
+        <h1>Bienvenue sur Planète QCM</h1>
         <p>Envie d'un moment de détente autour de questions de culture générale ? Pourquoi ne pas essayer un de nos nombreux QCM !
         <p>Inscrivez-vous gratuitement et venez tester vos connaissances sur l'un de nos QCM.</p>
         <p>De nombreux QCM seront ajouté dans les jours à venir.</p>
         <p>Amusez-vous bien !</p> <br/>
-        <p><em>L'équipe Planète QCM.</em></p>
+        <h2>Présentation</h2>
+        <br/>
+        <br/>
+        <img src="images/pres_choix.png" style="width:150px; height:150px"/>
+        <p class="float_right">Choissisez la matière que vous voulez traiter</p>
+
+        <p class="float_left">Répondez à 10 questions proposées aléatoirement</p>
+        <img src="images/pres_qcm.png" style="width:150px; height:150px"/>
+
+        <p style="text-align: center;">Amusez-vous bien !</p>
+        <br/>
+        <p style="text-align: right;" id="signature"><em>L'équipe Planète QCM.</em></p>
+
       </div>
     </div>
 

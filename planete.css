@@ -20,77 +20,56 @@ input
 }
 
 /* Titre de nos pages */
-#fond_perdu
+#fond_perdu_header
 {
   width: 100%;    
   height: 128px;
-  background-image:url(images/degrade.png);  
+  background-image:url("images/degrade.png");  
   background-repeat : repeat-x;   
-}
-
-#menu_perdu
-{
-  width : 100%;
-  height : 31px;
-  background-image:url(images/menu_degrade.png);
-  background-repeat : repeat-x;
 }
 
 #EN_TETE
 {
   width: 100%;    
   height: 100%;
-  background-image:url(images/Header.png);  
+  background-image:url("images/Header.png");  
   background-repeat : no-repeat;
   background-position: center;    
 }
 
-/* Titre utilisé dans profil.php */
-.CORPS h4
-{
-  font-weight : normal;
-  font-family : Bookman Old Style, sans-serif, Arial;
-  padding-bottom : 1%;
-  padding-top : 1%; 
-  font-size : 1.2em;
-  color : RGB(0, 0, 55);
-}
-
-/* Tableau dans administrateur.php */
-#admin th
-{
-  font-size : 1em;
-  width : 100px;
-  height : auto;
-  text-align : left;
-  text-decoration : none;
-  color : RGB(30, 30, 30);
-}
-
 /* Propriété du MENU */
+#fond_perdu_menu
+{
+  width : 100%;
+  height : 31px;
+  background-image:url("images/menu_degrade.png");
+  background-repeat : repeat-x;
+}
 /* Image menu */
 #MENU
 {  
-  background-image:url(images/Menu.png);
+  background-image:url("images/Menu.png");
   background-repeat: no-repeat;
   background-position: center;
   width : 100%;
-  height : 31px;
+  height : 100%;
 }
 
 /* Position Texte */
 #menu_tableau
 {
+  
   margin-left : 30%;
 }
 
 #menu_tableau td
 {
   display : inline-block;
+  margin-top : 0.1em;
   margin-right : 1em;
   margin-left : 1em;
   font-family : Century Gothic, sans-serif, Arial;
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 /* Propriétés sur les liens du tableau menu */
@@ -104,7 +83,7 @@ input
 #menu_connexion
 {
   font-family: Century Gothic, sans-serif, Arial;  
-  font-size : 1.1em;  
+  font-size : 1.3em;  
   float: right;
   margin-right: 1em;
 }
@@ -135,16 +114,23 @@ input
 }
 
 /* Pied de page */
+#fond_perdu_pied
+{
+  width : 100%;
+  height : 53px;
+  background-image:url("images/fond_degrade.png");
+  background-repeat : repeat-x;
+}
+
 #PIED_PAGE
 {
-  position: relative;  
-  width: 100%;
-  height: auto;  
-  margin-right: auto;
-  margin-left: auto;
-  background-image:url(images/Footer.png);
-  background-repeat: no-repeat;
-  background-position: center;
+  width : 100%;
+  height : 100%;  
+  margin-right : auto;
+  margin-left : auto;
+  background-image : url("images/Footer.png");
+  background-repeat : no-repeat;
+  background-position : center;
 }
 
 #pied_tableau
@@ -156,7 +142,7 @@ input
 {  
   display : inline-block;
   text-align : left;
-  font-size : 1.1em;
+  font-size : 1.5em;
   font-family : Century Gothic, sans-serif, Arial;
   margin-left : 1em;
   margin-right : 0.5em;
@@ -171,27 +157,24 @@ input
 /* Image de fond */
 .IMG_FOND
 {  
-  background-image:url(images/Body.png);  
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position : center;
-  background-attachment: fixed;
-  margin-left: auto;
-  margin-right: auto;
+  background-image:url(images/Body.png); 
   width: 1075px;
-  height : auto;
-  min-height: 600px;
+  background-repeat: repeat-y;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 /* Position du texte et des formulaires */
 .CORPS
 {
-  font-family : Times New Roman, sans-serif, Arial;
-  font-size : 1.1em;
-  width : 700px;
+  font-family : Century Gothic, Times New Roman, sans-serif, Arial;
+  font-size : 1.3em;
+  width : 900px;
+  height : auto;
   padding-top : 10px;
   margin-right : auto;
   margin-left : auto;
+  min-height : 800px;
 }
 
 /* Mise en page des formulaires */
@@ -200,6 +183,28 @@ input
   display : block;
   width : 100px;
   float : left;
+}
+
+/* Titre utilisé dans profil.php */
+.CORPS h4
+{
+  font-weight : normal;
+  font-family : Bookman Old Style, sans-serif, Arial;
+  padding-bottom : 1%;
+  padding-top : 1%; 
+  font-size : 1.2em;
+  color : RGB(0, 0, 55);
+}
+
+/* Tableau dans administrateur.php */
+#admin td
+{
+  font-size : 1.1em;
+  width : 10%;
+  height : auto;
+  text-align : left;
+  text-decoration : none;
+  color : white;
 }
 
 /* QCM -> choix de la matiere */
@@ -255,4 +260,23 @@ input
 .qr
 {
   margin: 10px;
+}
+
+.float_right
+{
+  display: block;
+  float: right;
+  text-align: left;
+  margin-top: 50px;
+  width: 70%;
+}
+
+.float_left
+{
+  display: block;
+  float: left;
+  text-align: right;
+  margin-top: 50px;
+  margin-right: 30px;
+  width: 70%;
 }
