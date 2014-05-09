@@ -10,33 +10,52 @@ body
   margin: 0;
   padding: 0;
   color : white;
-  border-collapse : collapse;
+  border-collapse : collapse;  
+  text-decoration: none;
 }
 
 input 
 {
   color : black;
 }
+
 /* Titre de nos pages */
+#fond_perdu
+{
+  width: 100%;    
+  height: 128px;
+  background-image:url(images/degrade.png);  
+  background-repeat : repeat-x;   
+}
+
+#menu_perdu
+{
+  width : 100%;
+  height : 31px;
+  background-image:url(images/menu_degrade.png);
+  background-repeat : repeat-x;
+}
+
 #EN_TETE
 {
-    width: 100%;    
-    height: auto;
-    min-height : 85px;
-    background-image:url(images/Header.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    
+  width: 100%;    
+  height: 100%;
+  background-image:url(images/Header.png);  
+  background-repeat : no-repeat;
+  background-position: center;    
 }
+
 /* Titre utilisé dans profil.php */
 .CORPS h4
 {
-  padding-bottom : 2px;
-  padding-top : 2px; 
-  font-size : 18px;
+  font-weight : normal;
+  font-family : Bookman Old Style, sans-serif, Arial;
+  padding-bottom : 1%;
+  padding-top : 1%; 
+  font-size : 1.2em;
   color : RGB(0, 0, 55);
 }
+
 /* Tableau dans administrateur.php */
 #admin th
 {
@@ -47,50 +66,45 @@ input
   text-decoration : none;
   color : RGB(30, 30, 30);
 }
+
 /* Propriété du MENU */
+/* Image menu */
 #MENU
-{
+{  
   background-image:url(images/Menu.png);
-  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   width : 100%;
-  height : auto;
+  height : 31px;
 }
-#MENU a:hover
-{
-  color: white;
-}
-/* Tableau MENU */
+
+/* Position Texte */
 #menu_tableau
 {
-  margin-left: auto;
-  margin-right: auto;  
-  text-align : left;
+  margin-left : 30%;
 }
 
 #menu_tableau td
 {
-  width: 15%;
-  height : auto;
+  display : inline-block;
+  margin-right : 1em;
+  margin-left : 1em;
+  font-family : Century Gothic, sans-serif, Arial;
   font-size: 1.1em;
 }
+
 /* Propriétés sur les liens du tableau menu */
-#menu_tableau a
-{
-  text-decoration: none;
-  color: white;
-}
 
 #menu_tableau a:hover
 {
-  text-decoration : none;
-  color: RGB(22, 39, 190);
+  color: RGB(22, 39, 210);
 }
-/*------------ Menu connexion--------------------------------------------------------------- */
+
+/* Slide de connection */
 #menu_connexion
 {
-  font-family: sans-serif, Arial;    
+  font-family: Century Gothic, sans-serif, Arial;  
+  font-size : 1.1em;  
   float: right;
   margin-right: 1em;
 }
@@ -105,8 +119,8 @@ input
 #menu_connexion li
 {
   display: inline-block;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 0.3em;
+  margin-left: 0.3em;
 }
 
 #menu_connexion a
@@ -120,9 +134,41 @@ input
   color: RGB(22, 39, 190);
 }
 
-/*------------ Corps --------------------------------------------------------------- */
-/* Propriétés du corps de nos pages */
+/* Pied de page */
+#PIED_PAGE
+{
+  position: relative;  
+  width: 100%;
+  height: auto;  
+  margin-right: auto;
+  margin-left: auto;
+  background-image:url(images/Footer.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+#pied_tableau
+{  
+  margin-left : 30%;
+}
+
+#pied_tableau td
+{  
+  display : inline-block;
+  text-align : left;
+  font-size : 1.1em;
+  font-family : Century Gothic, sans-serif, Arial;
+  margin-left : 1em;
+  margin-right : 0.5em;
+}
+
+#pied_tableau a:hover
+{
+  color: RGB(22, 39, 190);
+}
+
+/* Corps de la page */
+/* Image de fond */
 .IMG_FOND
 {  
   background-image:url(images/Body.png);  
@@ -130,22 +176,24 @@ input
   background-repeat: no-repeat;
   background-position : center;
   background-attachment: fixed;
-  margin-top : 0px;
   margin-left: auto;
   margin-right: auto;
-  width: 800px;
+  width: 1075px;
   height : auto;
   min-height: 600px;
 }
 
+/* Position du texte et des formulaires */
 .CORPS
 {
-  font-size : 17px;
+  font-family : Times New Roman, sans-serif, Arial;
+  font-size : 1.1em;
   width : 700px;
   padding-top : 10px;
   margin-right : auto;
   margin-left : auto;
 }
+
 /* Mise en page des formulaires */
 .CORPS label
 {  
@@ -153,6 +201,7 @@ input
   width : 100px;
   float : left;
 }
+
 /* QCM -> choix de la matiere */
 .choix_matiere
 {
@@ -169,7 +218,7 @@ input
   border: solid 1px black;
   color: white;
 }
-
+/* Lien */
 .choix_matiere a
 {
   text-decoration: none; 
@@ -180,30 +229,10 @@ input
   text-align: center;
   color: white;
 }
-
+/* Lien survolé */
 .choix_matiere a:hover
 {
-    background-color:  RGB(7, 30, 63);
-}
-
-/* Bas de nos pages */
-
-#PIED_PAGE
-{
-  position: relative;  
-  width: 100%;
-  height: auto;  
-  margin-right: auto;
-  margin-left: auto;
-  background-image:url(images/Footer.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-#pied_tableau
-{
-
+  background-color:  RGB(7, 30, 63);
 }
 
 .rep_bon
@@ -225,5 +254,5 @@ input
 
 .qr
 {
-   margin: 10px;
+  margin: 10px;
 }

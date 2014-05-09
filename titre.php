@@ -1,4 +1,5 @@
-<div id="EN_TETE">
+<div id="fond_perdu">
+  <div id="EN_TETE">
     <div id="menu_connexion">
         <ul>
           <?php
@@ -14,4 +15,5 @@
           ?>
         </ul>
     </div>
+  </div>
 </div>

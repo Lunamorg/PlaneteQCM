@@ -1,20 +1,22 @@
-<div id="MENU">
-  <table id="menu_tableau">
-    <tr>
-    <!-- Les th sont la juste pour passer la validation -->
-    <th></th>
-    <td><a href="planete.php" title="accueil">Accueil</a></td>
-    <td><a href="qcm.php" title="QCM">QCM</a></td>
-    <td><a href="leaderboard.php" title="LeaderBoard">LeaderBoard</a></td>
-    <?php
-    if(isset($_SESSION['privilege']) && $_SESSION['privilege'] == '1')
-    {
-      $var = "";
-      if($_SERVER['REQUEST_URI'] == '/PlaneteQCM/editeur.php')
-      $var = 'class="est_select"';
-      echo '<td><a '. $var .'href="editeur.php" title="Editeur">Editeur</a></td>';
-    }
-    ?>
-    </tr>
-  </table>
+<div id="menu_perdu">
+  <div id="MENU">
+    <table id="menu_tableau">
+      <tr>
+      <!-- Les th sont la juste pour passer la validation -->
+      <th></th>
+      <td><a href="planete.php" title="accueil">Accueil</a></td>
+      <td><a href="qcm.php" title="QCM">QCM</a></td>
+      <td><a href="leaderboard.php" title="LeaderBoard">LeaderBoard</a></td>
+      <?php
+      if(isset($_SESSION['privilege']) && $_SESSION['privilege'] == '1')
+      {
+        $var = "";
+        if($_SERVER['REQUEST_URI'] == '/PlaneteQCM/editeur.php')
+        $var = 'class="est_select"';
+        echo '<td><a '. $var .'href="editeur.php" title="Editeur">Editeur</a></td>';
+      }
+      ?>
+      </tr>
+    </table>
+  </div>
 </div>
