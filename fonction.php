@@ -478,4 +478,95 @@ function sauvegarderUn_editeur($matiere, $post)
   sauvegarde("qcm/" . $matiere . "/qcm.txt", $post['question'] . "\n", $reponse, $post['n_choix'] . "\n");
 }
 
+
+/***************************************** Fonctions qcm.php ******************************************/
+function choixMatiere_qcm()
+{
+  $i = 0;
+  echo "<table class='choix_matiere'>";
+  foreach(listeMatiere("qcm") as $valeur) {
+    ++$i;
+    if($i % 2 != 0) {
+      echo " <tr>
+                     <td style='background-image: url(images/" . $valeur . ".png); background-repeat: no-repeat; background-size: 200px 200px;'>
+                       <a href='qcm.php?matiere=" . $valeur . "&amp;cor=false'>Commencer</a>
+                     </td>";
+    } else {
+      echo "   <td style='background-image: url(images/" . $valeur . ".png); background-repeat: no-repeat; background-size: 200px 200px;'>
+                       <a href='qcm.php?matiere=" . $valeur . "&amp;cor=false'>Commencer</a>
+                     </td>
+                   </tr> ";
+    }
+  }
+  echo "</table>";
+}
+
+function corrige_qcm($matiere, $post, $pseudo)
+{
+  $i = 0;
+  $j = 0;
+  $reponse = array();
+  $score = 0;
+
+  foreach(lireQCM("qcm/" . $matiere . "/qcm.txt", true) as $valeur) {
+    if($i % 3 == 2) {
+      $reponse[$j] = $valeur;
+      ++$j;
+    }
+    ++$i;
+  }
+  $i = 0;
+  $k = 0;
+  foreach(lireQCM("qcm/" . $matiere . "/qcm.txt", true) as $valeur) {
+    if($i % 3 == 0) {
+      echo "<p>" . $valeur . "</p><br/>";
+    }
+    else if($i % 3 == 1) {
+      $tab = explode("$", $valeur);
+      $j = 0;
+      foreach($tab as $val) {
+        ++$j;
+        if($post['rep' . (floor($i / 3))] == $j && $j == $reponse[$k] || $j == $reponse[$k]) {
+          echo '<span class="rep_bon">' . $val . '</span><br/>';
+          $score += ($post['rep' . (floor($i / 3))] == $j);
+        }
+        else if($post['rep' . (floor($i / 3))] == $j && $j != $reponse[$k])
+          echo '<span class="rep_faux">' . $val . '</span><br/>';
+        else
+          echo '<span>' . $val . '</span><br/>';
+      }
+      echo '<hr/>';
+      ++$k;
+    }
+    ++$i;
+  }
+  echo "<h4>SCORE: " . $score . "/" . floor($i / 3) . "-" . number_format($score * 100 / floor($i / 3), 2) . "% </h4>";
+  score($score, $pseudo);
+}
+
+function formulaire_qcm($matiere)
+{
+  echo '<form method="post" action="qcm.php?matiere=' . $matiere . '&amp;cor=true"><div>';
+  $i = 0;
+  foreach(lireQCM("qcm/" . $matiere . "/qcm.txt", true) as $valeur) {
+
+    if($i % 3 == 0) {
+      echo "<p>" . $valeur . "</p><br/>";
+    }
+    else if($i % 3 == 1) {
+      $tab = explode("$", $valeur);
+      $j = 0;
+      foreach($tab as $val) {
+        ++$j;
+        echo '<input type="radio" name="rep' . (floor($i / 3)) . '" value="' . $j . '" />' . $val . '<br/>';
+      }
+      echo '<hr/>';
+    }
+    ++$i;
+  }
+
+  echo '<input type="submit" value="Soumettre"/>';
+  echo '</div></form>';
+}
+
 ?>
