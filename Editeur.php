@@ -13,7 +13,13 @@
   <body>
     <?php include('titre.php');
     include('menu.php');
-    include("fonction.php"); ?>
+    include("fonction.php");
+    if(!isset($_SESSION['pseudo']) || $_SESSION['privilege'] != 1)
+    {
+      header("Location: planete.php");
+      return;
+    }
+    ?>
 
     <div class="IMG_FOND">
       <div class="CORPS">
@@ -25,19 +31,23 @@
           <a href='editeur.php?type=sup&matiere=" . $matiere . "'><img src='images/sup.png' alt='Supprimer'/></a><br/>";
           }
           echo "</p>
-          <form method='post' action='editeur.php?type=add'>
+          <form method='post' action='editeur.php?type=add' enctype='multipart/form-data'>
             <p>Creer un QCM</p>
             <p>Le nom du qcm doit commencer par une majuscule, ne pas contenir de caractères sp&eacute;ciaux (accents compris) et ne doit pas exister. </p>
-            <input type='text' name='matiere' id='matiere'/>
+            <label>Nom de la matière</label><input type='text' name='matiere' id='matiere'/><br/>
+            <label>Image à charger (.png)</label><input type='file' name='nom_image' id='nom_image'/><br/>
             <input type='submit' value='Cr&eacute;er'/>            
           </form>";
         } else if($_GET['type'] == 'sup') {
           unlink("qcm/" . $_GET['matiere'] . "/qcm.txt");
           rmdir("qcm/" . $_GET['matiere']);
+          unlink("images/". $_GET['matiere'] .".png");
         } else if($_GET['type'] == 'add') {
           mkdir("qcm/" . $_POST['matiere']);
           $fichier = fopen("qcm/" . $_POST['matiere'] . "/qcm.txt", "w");
           fclose($fichier);
+          $chemin = 'images/';
+          move_uploaded_file($_FILES['nom_image']['tmp_name'],$chemin.$_POST['matiere'].".png");
         } else if($_GET['type'] == 'mod') {
 
           $i = 0;
