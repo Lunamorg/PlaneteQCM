@@ -3,24 +3,15 @@
 body
 {
   background-color: RGB(124, 138, 141);
-  font-family : Arial;
-}
-/* Paramètre par défaut */
-*
-{
   margin: 0;
   padding: 0;
-  color : white;
-  border-collapse : collapse;  
+  border-collapse : collapse;
+  color : white;  
   text-decoration: none;
 }
 
 input 
 {
-  margin-top : 0.1em;
-  margin-bottom : 0.1em;
-  width : 15%;
-  height : 10%;
   color : black;
 }
 
@@ -58,20 +49,22 @@ input
   background-position: center;
   width : 100%;
   height : 100%;
+  color : white;
 }
 
 /* Position Texte */
 #menu_tableau
-{  
-  margin-left : 22%;
+{
+  
+  margin-left : 30%;
 }
 
 #menu_tableau td
 {
   display : inline-block;
   margin-top : 0.1em;
-  margin-right : 1.8em;
-  margin-left : 1.8em;
+  margin-right : 1em;
+  margin-left : 1em;
   font-family : Century Gothic, sans-serif, Arial;
   font-size: 1.3em;
 }
@@ -139,17 +132,17 @@ input
 
 #pied_tableau
 {  
-  margin-left : 22%;
+  margin-left : 30%;
 }
 
 #pied_tableau td
 {  
   display : inline-block;
-  font-size : 1.3em;
+  text-align : left;
+  font-size : 1.5em;
   font-family : Century Gothic, sans-serif, Arial;
-  margin-top : 0.4em;
-  margin-left : 1.8em;
-  margin-right : 1.8em;
+  margin-left : 1em;
+  margin-right : 0.5em;
 }
 
 #pied_tableau a:hover
@@ -173,9 +166,9 @@ input
 {
   font-family : Century Gothic, Times New Roman, sans-serif, Arial;
   font-size : 1.3em;
-  width : 1000px;
+  width : 900px;
   height : auto;
-  padding-top : 0.8em;
+  padding-top : 10px;
   margin-right : auto;
   margin-left : auto;
   min-height : 800px;
@@ -184,17 +177,9 @@ input
 /* Mise en page des formulaires */
 .CORPS label
 {  
-  display : block;  
-  width : 20%;
-  height : auto;
+  display : block;
+  width : 100px;
   float : left;
-}
-
-.CORPS h3
-{
-  font-family : Comic Sans MS, Arial;
-  font-weight : normal;
-  font-size : 1.1em;
 }
 
 /* Titre utilisé dans profil.php */
@@ -204,26 +189,19 @@ input
   font-family : Bookman Old Style, sans-serif, Arial;
   padding-bottom : 1%;
   padding-top : 1%; 
-  font-size : 1.1em;
+  font-size : 1.2em;
   color : RGB(0, 0, 55);
 }
 
-/* Tableau Corps */
-.CORPS td
+/* Tableau dans administrateur.php */
+#admin td
 {
-  text-align : left;
-  width : 200px;
   font-size : 1.1em;
-  margin-top : 0.7em;
-  margin-bottom : 0.7em;
-}
-
-.CORPS th
-{
-  font-size : 1.25em;
-  font-family : Bookman Old Style, Arial;
+  width : 10%;
+  height : auto;
   text-align : left;
-  font-weight : normal;
+  text-decoration : none;
+  color : white;
 }
 
 /* QCM -> choix de la matiere */
@@ -240,7 +218,6 @@ input
   width: 200px;
   height: 200px;
   border: solid 1px black;
-  color: white;
 }
 /* Lien */
 .choix_matiere a
@@ -252,7 +229,6 @@ input
   margin-top: 175px;
   margin-left: 50px;
   text-align: center;
-  color: white;
 }
 /* Lien survolé */
 .choix_matiere a:hover

@@ -26,8 +26,8 @@
       ?>
       <table>
         <thead>
-          <th>Score</th>
-          <th>QCM</th>
+          <th>Mon Score</th>
+          <th>QCM faits</th>
         </thead>
           <tr>
             <td><?php echo prcent($donnee['bonreponse'], $donnee['qcm']*10)?></td>

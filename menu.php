@@ -10,8 +10,6 @@
       <?php
       if(isset($_SESSION['privilege']) && $_SESSION['privilege'] == '1')
       {
-        $var = "";
-        if($_SERVER['REQUEST_URI'] == '/PlaneteQCM/editeur.php')
         echo '<td><a href="editeur.php" title="Editeur">Editeur</a></td>';
       }
       ?>

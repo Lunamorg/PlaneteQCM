@@ -6,7 +6,7 @@
           include_once("fonction.php");
           connexion("projet");
           $con = nbConnecte("planeteqcm", array("connecte" => "true"));
-          echo  $con . " membre" . (($con > 1) ? "s" : "") ." connecté". (($con > 1) ? "s" : "");
+          echo  $con . " membre" . (($con > 1) ? "s" : "") ." connectÃ©". (($con > 1) ? "s" : "");
           deconnexion();
           ?>
         </td>

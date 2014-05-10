@@ -16,6 +16,7 @@
 
   <div class="IMG_FOND">
     <div class="CORPS">
+      <h4>Panneau administrateur</h4>
       <?php
       include_once("fonction.php");
       if(isset($_GET['type']) && $_GET['type'] == "sup")
@@ -37,21 +38,21 @@
         connexion("projet");
         $donnee = selectionnerPlusieurs("planeteqcm", array("*"));
         deconnexion();
-        echo "<table id='admin'>";
+        echo "<table>";
         echo "<thead>";
-        echo "<td>Pseudo</td><td>Mail</td><td>Score</td><td>QCM(s) réalisé(s)</td><td>Privilege</td>";
+        echo "<td>Pseudo</td><td>Adresse E-Mail</td><td>Score</td><td>QCM réalisé</td><td>Droits</td>";
         echo "</thead>";
         for($i = 0; $i < count($donnee) - 1; ++$i)
         {
           echo "<tr>";
           echo "<td>" . $donnee[$i]['pseudo'] . "</td><td>". $donnee[$i]['email'] ."</td><td>" . prcent($donnee[$i]['bonreponse'], $donnee[$i]['qcm']*10) . "</td><td>". $donnee[$i]['qcm'] ."</td><td>" . $donnee[$i]['privilege'] . "</td><td>
-          <a href='administration.php?type=reset&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/reset.png' alt='Reset score'/></a>
-          <a href='administration.php?type=sup&pseudo=" . $donnee[$i]['pseudo'] . "'><img src='images/sup.png' alt='Supprimer'/></a></td><br>";
+          <a href='administration.php?type=reset&pseudo=" . $donnee[$i]['pseudo'] . "'><abbr title='Reset'><img src='images/reset.png' alt='Reset score'/></abbr></a>
+          <a href='administration.php?type=sup&pseudo=" . $donnee[$i]['pseudo'] . "'><abbr title='Supprimer'><img src='images/sup.png' alt='Supprimer'/></abbr></a></td><br>";
           echo "</tr>";
         }
         echo "</table>";
       }
-      ?>
+      ?>      
     </div>
   </div>
   <?php include('pied.php'); ?>
