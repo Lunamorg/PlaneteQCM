@@ -241,6 +241,7 @@ input
   height: 200px;
   border: solid 1px black;
   color: white;
+  text-align: center;
 }
 /* Lien */
 .choix_matiere a
@@ -248,10 +249,9 @@ input
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.5);
   display: block;
-  width: 100px;
-  margin-top: 175px;
-  margin-left: 50px;
+  width: 120px;
   text-align: center;
+  margin: 170px auto auto;
   color: white;
 }
 /* Lien survolé */
