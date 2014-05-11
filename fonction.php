@@ -557,7 +557,7 @@ function formulaire_qcm($matiere)
       $j = 0;
       foreach($tab as $val) {
         ++$j;
-        echo '<input type="radio" name="rep' . (floor($i / 3)) . '" value="' . $j . '" />' . $val . '<br/>';
+        echo '<input type="radio" name="rep' . (floor($i / 3)) . '" value="' . $j . '" '. (($j == 1) ? 'checked="checked"' : '') .' />' . $val . '<br/>';
       }
       echo '<hr/>';
     }
