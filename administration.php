@@ -22,21 +22,21 @@
       if(isset($_GET['type']) && $_GET['type'] == "sup")
       {
         connexion("projet");
-        supprimer("planeteqcm", array("pseudo" => $_GET['pseudo']));
+        supprimer($GLOBALS["$nom_table"], array("pseudo" => $_GET['pseudo']));
         deconnexion();
         header('Location: administration.php');
       }
       else if(isset($_GET['type']) && $_GET['type'] == "reset")
       {
         connexion("projet");
-        maj("planeteqcm", array("qcm" => "0", "bonreponse" => "0"), array("pseudo" => $_GET['pseudo']));
+        maj($GLOBALS["$nom_table"], array("qcm" => "0", "bonreponse" => "0"), array("pseudo" => $_GET['pseudo']));
         deconnexion();
         header('Location: administration.php');
       }
       else
       {
         connexion("projet");
-        $donnee = selectionnerPlusieurs("planeteqcm", array("*"));
+        $donnee = selectionnerPlusieurs($GLOBALS["nom_table"], array("*"));
         deconnexion();
         echo "<table>";
         echo "<thead>";

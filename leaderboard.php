@@ -22,7 +22,7 @@
         <?php
         include_once("fonction.php");
         connexion("projet");
-        $tab = rangerParScore("planeteqcm", array('pseudo', 'bonreponse', 'qcm'));
+        $tab = rangerParScore($GLOBALS["nom_table"], array('pseudo', 'bonreponse', 'qcm'));
         deconnexion();
         $classement = 1;
         foreach($tab as $valeur)

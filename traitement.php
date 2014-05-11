@@ -17,7 +17,7 @@ if(estCorrect($_GET['type'])) {
     }
   } else if($_GET['type'] == 'suppression') {
     connexion('projet');
-    supprimer("planeteqcm", array("pseudo" => $_SESSION['pseudo']));
+    supprimer($GLOBALS["nom_table"], array("pseudo" => $_SESSION['pseudo']));
     deconnexion();
     session_destroy();
     header('location: traitement.php?type=deconnexion');
@@ -29,7 +29,7 @@ if(estCorrect($_GET['type'])) {
       $_SESSION['pseudo'] = $_POST['pseudo'];
       $_SESSION['privilege'] = $resultat['privilege'];
       connexion('projet');
-      maj("planeteqcm", array("connecte" => "true"), array("pseudo" => $_POST['pseudo']));
+      maj($GLOBALS["nom_table"], array("connecte" => "true"), array("pseudo" => $_POST['pseudo']));
       deconnexion();
 
       header('Location: planete.php');
@@ -42,7 +42,7 @@ if(estCorrect($_GET['type'])) {
     }
   } else if($_GET['type'] == 'deconnexion') {
     connexion('projet');
-    maj("planeteqcm", array("connecte" => "false"), array("pseudo" => $_SESSION['pseudo']));
+    maj($GLOBALS["nom_table"], array("connecte" => "false"), array("pseudo" => $_SESSION['pseudo']));
     deconnexion();
     session_destroy();
   } else if($_GET['type'] == 'admin') {
@@ -52,9 +52,9 @@ if(estCorrect($_GET['type'])) {
   } else if(isset($_GET['type']) && $_GET['type'] == "modmdp")
   {
     connexion("projet");
-    $var = selectionner("planeteqcm", array("mdp"), array("pseudo" => $_GET['pseudo']));
+    $var = selectionner($GLOBALS["nom_table"], array("mdp"), array("pseudo" => $_GET['pseudo']));
     if(cryptage($_POST['amdp']) == $var['mdp'])
-      maj("planeteqcm", array("mdp" => cryptage($_POST['mdp'])), array("pseudo" => $_GET['pseudo']));
+      maj($GLOBALS["nom_table"], array("mdp" => cryptage($_POST['mdp'])), array("pseudo" => $_GET['pseudo']));
     deconnexion();
   }
 } else {

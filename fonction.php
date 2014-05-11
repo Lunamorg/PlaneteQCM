@@ -3,9 +3,15 @@
  
 /* Connexion a la base de donnee */
  
+$nom_bdd = "projet";
+$id_bdd = "root";
+$mdp_bdd = "";
+$serveur_bdd = "localhost";
+$nom_table = "planeteqcm";
+ 
 function connexion($nomBDD)
 {
-  mysql_connect("localhost", "root", "") or die ('ERREUR ' . mysql_error());
+  mysql_connect($GLOBALS['serveur_bdd'], $GLOBALS['id_bdd'], $GLOBALS['mdp_bdd']) or die ('ERREUR ' . mysql_error());
   mysql_select_db($nomBDD);
 }
 
@@ -343,8 +349,8 @@ function str_espace($donnee)
 function score($score, $pseudo)
 {
   connexion("projet");
-  $res = selectionner("planeteqcm", array("qcm", "bonreponse"), array("pseudo" => $pseudo));
-  maj("planeteqcm", array("qcm" => $res["qcm"] + 1, "bonreponse" => $score + $res["bonreponse"]), array("pseudo" => $pseudo));
+  $res = selectionner($GLOBALS["nom_table"], array("qcm", "bonreponse"), array("pseudo" => $pseudo));
+  maj($GLOBALS["nom_table"], array("qcm" => $res["qcm"] + 1, "bonreponse" => $score + $res["bonreponse"]), array("pseudo" => $pseudo));
   deconnexion();
 }
 

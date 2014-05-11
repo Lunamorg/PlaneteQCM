@@ -21,7 +21,7 @@
       <?php
       include_once("fonction.php");
       connexion("projet");
-      $donnee = selectionner("planeteqcm", array("qcm", "bonreponse"), array("pseudo" => $_SESSION['pseudo']));
+      $donnee = selectionner($GLOBALS["nom_table"], array("qcm", "bonreponse"), array("pseudo" => $_SESSION['pseudo']));
       deconnexion();
       ?>
       <table>
